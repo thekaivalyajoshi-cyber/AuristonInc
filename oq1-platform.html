@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omega Quanta 1 - Auriston Inc</title>
+    <style>
+        :root {
+            --gold: #876c3a;
+            --dark-gold: #756035;
+            --snow-white: #fefefe;
+            --off-white: #f8f9fa;
+            --charcoal: #2c2c2c;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--snow-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Header - Same as main site */
+        .corporate-header {
+            background: var(--snow-white);
+            border-bottom: 2px solid var(--light-gray);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--charcoal);
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-top: -5px;
+        }
+
+        .nav-main {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .main-content {
+            margin-top: 80px;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+            color: var(--snow-white);
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .countdown-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .countdown-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--snow-white);
+        }
+
+        .countdown-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-unit {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background: var(--off-white);
+            padding: 60px 2rem;
+        }
+
+        .progress-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .progress-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--charcoal);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gold);
+        }
+
+        .timeline-phase {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .phase-marker {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .phase-content {
+            flex: 1;
+            background: var(--snow-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--gold);
+        }
+
+        .phase-completed .phase-marker {
+            background: #4CAF50;
+        }
+
+        .phase-current .phase-marker {
+            background: var(--gold);
+            animation: pulse 2s infinite;
+        }
+
+        .phase-future .phase-marker {
+            background: var(--light-gray);
+            color: #999;
+        }
+
+        .phase-status {
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-completed .phase-status {
+            color: #4CAF50;
+        }
+
+        .phase-future .phase-status {
+            color: #999;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* OQ1 Interface Section */
+        .interface-section {
+            padding: 80px 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .interface-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--charcoal);
+        }
+
+        .analysis-section {
+            background: var(--snow-white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--light-gray);
+            margin-bottom: 3rem;
+        }
+
+        .analysis-section h3 {
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            margin: 15px 0;
+            resize: vertical;
+        }
+
+        .analyze-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(135, 108, 58, 0.3);
+        }
+
+        .result-container {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--gold);
+            display: none;
+        }
+
+        .pattern-item {
+            background: var(--off-white);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .confidence-high { background: #e8f5e8; border-left-color: #4CAF50; }
+        .confidence-medium { background: #fff3cd; border-left-color: #FFC107; }
+        .confidence-low { background: #ffe8e8; border-left-color: #f44336; }
+
+        /* Footer */
+        .corporate-footer {
+            background: var(--charcoal);
+            color: var(--snow-white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo .logo-icon {
+            margin-right: 15px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--snow-white);
+        }
+
+        .footer-links-column h4 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-link {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .nav-main {
+                display: none;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .timeline-phase {
+                flex-direction: column;
+            }
+            
+            .phase-marker {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="corporate-header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">A</div>
+                <div>
+                    <div class="logo-text">AURISTON</div>
+                    <div class="logo-subtitle">OMEGA QUANTA 1</div>
+                </div>
+            </a>
+            <ul class="nav-main">
+                <li><a href="index.html" class="nav-link">← Back to Auriston</a></li>
+                <li><a href="#countdown" class="nav-link">Countdown</a></li>
+                <li><a href="#progress" class="nav-link">Our Journey</a></li>
+                <li><a href="#interface" class="nav-link">Try OQ1</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Countdown Section -->
+        <section id="countdown" class="countdown-section">
+            <div class="countdown-container">
+                <h2 class="countdown-title">Omega Quanta 1 Trail Model</h2>
+                <p class="countdown-subtitle">
+                    Counting down to our first functional trail model. The full institutional platform 
+                    launches Q3 2026, but you can experience the core AI in just 90 days.
+                </p>
+                
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="days">90</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+
+                <p style="opacity: 0.8; font-size: 1.1rem;">
+                    First trail model launching in: <strong>90 days</strong><br>
+                    Full platform launch: <strong>Q3 2026</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Progress Timeline Section -->
+        <section id="progress" class="progress-section">
+            <div class="progress-container">
+                <h2 class="progress-title">Our Development Journey</h2>
+                
+                <div class="timeline">
+                    <!-- Q2 2025 - COMPLETED -->
+                    <div class="timeline-phase phase-completed">
+                        <div class="phase-marker">Q2</div>
+                        <div class="phase-content">
+                            <div class="phase-status">Completed - Q2 2025</div>
+                            <h3>Vision & Conceptualization</h3>
+                            <p style="color: #666; line-height: 1.7;">
+                                Initial idea for Omega Quanta 1 was born. Comprehensive research into market gaps 
+                                and technological opportunities. Defined core architecture and target capabilities.
+                            </p>
+                            <ul style="color: #666; margin-top: 1rem; padding-left: 1.5rem;">
+                                <li>Market analysis and opportunity assessment</li>
+                                <li>Initial technical architecture planning</li>
+                                <li>Competitive landscape research</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Q3 2025 - COMPLETED -->
+                    <div class="timeline-phase phase-completed">
+                        <div class="phase-marker">Q3</div>
+                        <div class="phase-content">
+                            <div class="phase-status">Completed - Q3 2025</div>
+                            <h3>Technical Planning & Architecture</h3>
+                            <p style="color: #666; line-height: 1.7;">
+                                Detailed system architecture design. Technology stack selection. 
+                                Development methodology planning and resource allocation.
+                            </p>
+                            <ul style="color: #666; margin-top: 1rem; padding-left: 1.5rem;">
+                                <li>System architecture and module design</li>
+                                <li>Technology stack finalization</li>
+                                <li>Development roadmap creation</li>
+                                <li>Initial team formation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Q4 2025 - CURRENT -->
+                    <div class="timeline-phase phase-current">
+                        <div class="phase-marker">Q4</div>
+                        <div class="phase-content">
+                            <div class="phase-status">In Progress - Q4 2025</div>
+                            <h3>Core Development Phase</h3>
+                            <p style="color: #666; line-height: 1.7;">
+                                Active development of Omega Quanta 1 core systems. Building foundational 
+                                AI pattern recognition, data infrastructure, and web interface.
+                            </p>
+                            <ul style="color: #666; margin-top: 1rem; padding-left: 1.5rem;">
+                                <li>✅ Auriston Inc corporate website launched</li>
+                                <li>✅ Basic AI pattern recognition engine</li>
+                                <li>🔄 Advanced technical indicators integration</li>
+                                <li>🔄 Data pipeline architecture</li>
+                                <li>🔄 Risk modeling framework</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Q1 2026 - FUTURE -->
+                    <div class="timeline-phase phase-future">
+                        <div class="phase-marker">Q1</div>
+                        <div class="phase-content">
+                            <div class="phase-status">Coming - Q1 2026</div>
+                            <h3>Advanced Feature Development</h3>
+                            <p style="color: #666; line-height: 1.7;">
+                                Integration of advanced analytics, news sentiment engine, and 
+                                historical comparison systems. Beta testing with select partners.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Q2 2026 - FUTURE -->
+                    <div class="timeline-phase phase-future">
+                        <div class="phase-marker">Q2</div>
+                        <div class="phase-content">
+                            <div class="phase-status">Coming - Q2 2026</div>
+                            <h3>Institutional Feature Integration</h3>
+                            <p style="color: #666; line-height: 1.7;">
+                                Development of risk management systems, compliance features, 
+                                and enterprise-grade dashboard. Advanced backtesting capabilities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Q3 2026 - FUTURE -->
+                    <div class="timeline-phase phase-future">
+                        <div class="phase-marker">Q3</div>
+                        <div class="phase-content">
+                            <div class="phase-status">Target Launch - Q3 2026</div>
+                            <h3>Omega Quanta 1 Official Launch</h3>
+                            <p style="color: #666; line-height: 1.7;">
+                                Full platform release with all core capabilities. Institutional onboarding, 
+                                public availability, and continuous improvement cycle begins.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OQ1 Interface Section -->
+        <section id="interface" class="interface-section">
+            <h2 class="interface-title">Try Omega Quanta 1 Prototype</h2>
+            
+            <div class="analysis-section">
+                <h3>📈 Chart Pattern Analysis</h3>
+                <p><strong>Describe what you see on the charts:</strong></p>
+                <textarea id="chartInput" placeholder="Examples:
+• Price making higher highs and higher lows
+• Stock bouncing off $150 support level  
+• Consolidating in a tight range after earnings
+• Breaking below 50-day moving average"></textarea>
+                <button class="analyze-btn" onclick="analyzeWithAI()">🧠 Analyze with OQ1 AI</button>
+                
+                <div id="aiResult" class="result-container">
+                    <!-- AI analysis appears here -->
+                </div>
+            </div>
+
+            <div style="text-align: center; color: #666; font-size: 1.1rem;">
+                <p><strong>This is our current prototype.</strong> The full OQ1 platform will include:</p>
+                <ul style="display: inline-block; text-align: left; margin-top: 1rem;">
+                    <li>Advanced technical indicators</li>
+                    <li>Real-time market data integration</li>
+                    <li>Risk management systems</li>
+                    <li>News sentiment analysis</li>
+                    <li>Institutional-grade analytics</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <div class="logo-icon">A</div>
+                    <div class="footer-logo-text">AURISTON</div>
+                </div>
+                <p style="color: #ccc; line-height: 1.7; max-width: 400px;">
+                    Building the future of financial intelligence through advanced AI systems.
+                </p>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Auriston Inc</a></li>
+                    <li><a href="#countdown" class="footer-link">Countdown</a></li>
+                    <li><a href="#progress" class="footer-link">Our Journey</a></li>
+                    <li><a href="#interface" class="footer-link">Try OQ1</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                    <li><a href="#careers" class="footer-link">Careers</a></li>
+                    <li><a href="#investors" class="footer-link">Investors</a></li>
+                    <li><a href="#press" class="footer-link">Press</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Auriston Inc. Omega Quanta 1 Platform</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                Trail model launching in 90 days • Full platform Q3 2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer - 90 days from now
+        function updateCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 90);
+            
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // OQ1 AI Analysis
+        function analyzeWithAI() {
+            const input = document.getElementById('chartInput').value.trim();
+            const resultDiv = document.getElementById('aiResult');
+            
+            if (!input) {
+                alert('Please describe the chart pattern you see');
+                return;
+            }
+
+            const analysis = runAIAnalysis(input);
+            
+            resultDiv.innerHTML = `
+                <h3>🧠 OQ1 AI Analysis:</h3>
+                <div class="pattern-item confidence-${analysis.confidenceLevel}">
+                    <p><strong>📊 Pattern Identified:</strong> ${analysis.pattern}</p>
+                    <p><strong>🎯 Confidence Level:</strong> ${analysis.confidence}</p>
+                    <p><strong>💡 Recommendation:</strong> ${analysis.recommendation}</p>
+                    <p><strong>🤔 Reasoning:</strong> ${analysis.reasoning}</p>
+                    <p><strong>⚡ Expected Move:</strong> ${analysis.expectedMove}</p>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+        }
+
+        function runAIAnalysis(input) {
+            const lowerInput = input.toLowerCase();
+            
+            if (lowerInput.includes('higher high') && lowerInput.includes('higher low')) {
+                return {
+                    pattern: "UPTREND",
+                    confidence: "85% - High Confidence",
+                    confidenceLevel: "high",
+                    recommendation: "Look for buying opportunities on pullbacks to support",
+                    reasoning: "Sustained higher highs and higher lows indicate strong bullish momentum. Trend is your friend until proven otherwise.",
+                    expectedMove: "2-5% continuation likely over 1-2 weeks"
+                };
+            }
+            else if (lowerInput.includes('lower high') && lowerInput.includes('lower low')) {
+                return {
+                    pattern: "DOWNTREND", 
+                    confidence: "80% - High Confidence",
+                    confidenceLevel: "high",
+                    recommendation: "Avoid long positions, consider shorting rallies or waiting for reversal signs",
+                    reasoning: "Persistent lower highs and lower lows show dominant selling pressure. Don't fight the trend.",
+                    expectedMove: "3-7% further decline possible"
+                };
+            }
+            else if (lowerInput.includes('bounce') && lowerInput.includes('support')) {
+                return {
+                    pattern: "SUPPORT BOUNCE",
+                    confidence: "75% - Medium Confidence", 
+                    confidenceLevel: "medium",
+                    recommendation: "Consider long entries with stop below support level",
+                    reasoning: "Price respecting key support level indicates potential reversal or consolidation.",
+                    expectedMove: "3-8% bounce toward nearest resistance"
+                };
+            }
+            else if (lowerInput.includes('sideways') || lowerInput.includes('range') || lowerInput.includes('consolidat')) {
+                return {
+                    pattern: "CONSOLIDATION",
+                    confidence: "70% - Medium Confidence",
+                    confidenceLevel: "medium", 
+                    recommendation: "Trade range boundaries or wait for breakout confirmation",
+                    reasoning: "Price compression often leads to significant expansion. The longer the consolidation, the stronger the eventual move.",
+                    expectedMove: "Breakout direction will determine 5-15% move"
+                };
+            }
+            else {
+                return {
+                    pattern: "UNCLEAR PATTERN",
+                    confidence: "40% - Low Confidence", 
+                    confidenceLevel: "low",
+                    recommendation: "Wait for clearer technical signals or provide more specific price action details",
+                    reasoning: "Market structure not clearly identifiable. Could be transition phase or choppy market conditions.",
+                    expectedMove: "Direction uncertain - high risk environment"
+                };
+            }
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize countdown
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
