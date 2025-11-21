@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auriston Inc.</title>
+    <title>Auriston Inc. | Quiet Minds Move Markets</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23d4af37'>A</text></svg>">
+    
     <style>
         * {
             margin: 0;
@@ -22,10 +26,12 @@
             justify-content: center;
             text-align: center;
             padding: 2rem;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 800px;
+            width: 100%;
         }
 
         .logo {
@@ -59,6 +65,29 @@
             margin: 0 auto 3rem;
         }
 
+        /* About Section */
+        .about-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-content {
+            color: #c4c4c4;
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .footer {
             margin-top: 4rem;
             font-size: 0.9rem;
@@ -80,7 +109,8 @@
         @media (max-width: 768px) {
             .logo { font-size: 2.5rem; letter-spacing: 4px; }
             .tagline { font-size: 1.1rem; }
-            .mission { font-size: 1rem; padding: 0 1rem; }
+            .mission, .about-content { font-size: 1rem; padding: 0 1rem; }
+            .about-section { padding: 1.5rem 1rem; }
         }
     </style>
 </head>
@@ -98,10 +128,31 @@
                 Combining institutional-grade risk modeling, real-time market analysis, 
                 and autonomous AI to decode complexity into clarity.
             </p>
+
+            <!-- About Section -->
+            <section class="about-section">
+                <h2 class="section-title">Our Story</h2>
+                <div class="about-content">
+                    <p>
+                        Founded in 2025, Auriston emerged from a simple observation: 
+                        true market advantage comes not from noise, but from silence. 
+                        While others chase headlines, we build systems that understand 
+                        the subtle patterns others miss.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        We are architects of intelligent market systems, blending 
+                        quantitative rigor with artificial intelligence to create 
+                        tools that don't just predict markets—they understand them.
+                    </p>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
             <p>AURISTON INC. • ESTABLISHED 2025</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #555;">
+                Step 1: Logo & Identity ✓ | Next: Services & Contact
+            </p>
         </footer>
     </div>
 </body>
