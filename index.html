@@ -80,6 +80,13 @@
             padding: 2rem 0;
         }
 
+        /* Contact Section */
+        .contact-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
         .section-title {
             font-size: 1.3rem;
             margin-bottom: 2rem;
@@ -129,6 +136,69 @@
             line-height: 1.6;
         }
 
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e0d8c5;
+            background: #fff;
+            font-family: "Georgia", serif;
+            font-size: 0.95rem;
+            color: #333;
+            transition: border 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #876c3a;
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #876c3a;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-family: "Georgia", serif;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #756035;
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
         .about-content {
             color: #555; /* Dark gray */
             font-size: 1rem;
@@ -159,7 +229,7 @@
             .logo { font-size: 2.5rem; letter-spacing: 4px; }
             .tagline { font-size: 1.1rem; }
             .mission, .about-content { font-size: 1rem; padding: 0 1rem; }
-            .about-section, .services-section { padding: 1.5rem 1rem; }
+            .about-section, .services-section, .contact-section { padding: 1.5rem 1rem; }
             .services-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -232,14 +302,60 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h2 class="section-title">Begin the Conversation</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="company">Company / Institution</label>
+                            <input type="text" id="company" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Your Message</label>
+                            <textarea id="message" class="form-textarea" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <p>For urgent inquiries: <strong>contact@auriston.com</strong></p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #888;">
+                        All inquiries are treated with strict confidentiality
+                    </p>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
             <p>AURISTON INC. • ESTABLISHED 2025</p>
             <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #aaa;">
-                Step 3: Services & Divisions ✓ | Next: Contact Form
+                All Steps Complete: Logo ✓ About ✓ Services ✓ Contact ✓
             </p>
         </footer>
     </div>
+
+    <script>
+        // Simple form handling - can be connected to backend later
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will be in touch shortly.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
