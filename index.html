@@ -1,103 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auriston Inc</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auriston Inc.</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: "Times New Roman", serif;
-            color: #d4af37; /* Gold */
-            background-color: #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            font-family: "Georgia", serif;
+            background-color: #f5f2e9;
+            color: #1a1a1a;
+        }
+        header {
+            padding: 20px;
             text-align: center;
-            min-height: 100vh;
-        }
-
-        h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             letter-spacing: 2px;
-            font-weight: bold;
+            border-bottom: 1px solid #c2b79c;
         }
-
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
+        .tagline {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #595446;
         }
-
-        /* Countdown styling */
-        .countdown {
-            font-size: 1.4rem;
-            margin-top: 20px;
-            letter-spacing: 1px;
-        }
-
-        /* Chart Placeholder */
-        .chart-box {
-            width: 85%;
-            max-width: 350px;
-            height: 180px;
-            border: 1px solid #d4af37;
-            margin-top: 40px;
-            opacity: 0.5;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
             font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-
-        /* Signature Line */
-        .line {
-            width: 120px;
-            height: 1px;
-            background: #d4af37;
-            margin: 15px 0;
+            opacity: 0.6;
         }
     </style>
 </head>
 <body>
+    <header>AURISTON INC.</header>
 
-    <h1>AURISTON INC</h1>
-    <div class="line"></div>
-    <p class="subtitle">Future of Autonomous Financial Intelligence</p>
+    <div class="tagline">Precision • Ambition • Legacy</div>
 
-    <!-- Placeholder chart box -->
-    <div class="chart-box">
-        Live Market Model Loading...
-    </div>
-
-    <!-- Countdown -->
-    <div id="countdown" class="countdown">Launching Soon...</div>
-
-    <script>
-        // Countdown timer to a placeholder launch date
-        const launchDate = new Date("April 1, 2026 12:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "Auriston Intelligence Is Live.";
-                clearInterval(timer);
-            } else {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("countdown").innerHTML = 
-                    `Launching In: ${days} Days · ${hours} Hours · ${minutes} Minutes`;
-            }
-        }, 1000);
-    </script>
-
+    <footer>© Auriston Inc. — Established 2025</footer>
 </body>
 </html>
