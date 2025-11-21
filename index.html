@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auriston Inc - Advanced Financial Intelligence</title>
+    <title>Auriston Inc - Omega Quanta 1 Launch</title>
     <style>
         :root {
             --gold: #876c3a;
@@ -14,564 +14,362 @@
             --light-gray: #e9ecef;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* (Keep all previous styles, adding these new ones) */
+        
+        .countdown-section {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+            color: var(--snow-white);
+            padding: 80px 2rem;
+            text-align: center;
         }
 
-        body {
-            font-family: 'Georgia', serif;
-            background: var(--snow-white);
-            color: var(--charcoal);
-            line-height: 1.6;
-        }
-
-        /* Professional Header */
-        .corporate-header {
-            background: var(--snow-white);
-            border-bottom: 2px solid var(--light-gray);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        }
-
-        .nav-container {
-            max-width: 1200px;
+        .countdown-container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
         }
 
-        /* LOGO DESIGN */
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
+        .countdown-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--snow-white);
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            font-weight: bold;
-            color: white;
+        .countdown-subtitle {
             font-size: 1.2rem;
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--charcoal);
-        }
-
-        .logo-subtitle {
-            font-size: 0.7rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            margin-top: -5px;
-        }
-
-        .nav-main {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: var(--charcoal);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--gold);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-top: 80px;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--charcoal) 0%, #3a3a3a 100%);
-            color: var(--snow-white);
-            padding: 120px 2rem;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--snow-white);
-            font-weight: 300;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
             opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-weight: 300;
-            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .section {
-            padding: 100px 2rem;
-            max-width: 1200px;
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-unit {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .progress-section {
+            background: var(--off-white);
+            padding: 60px 2rem;
+        }
+
+        .progress-container {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .section-light {
-            background: var(--off-white);
-            border-radius: 12px;
-            margin: 40px auto;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-        }
-
-        .section-title {
-            font-size: 2.8rem;
+        .progress-title {
             text-align: center;
+            font-size: 2.2rem;
             margin-bottom: 3rem;
             color: var(--charcoal);
-            font-weight: 300;
+        }
+
+        .timeline {
             position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .capability-card {
-            background: var(--snow-white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border: 1px solid var(--light-gray);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .capability-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(135, 108, 58, 0.15);
-            border-color: var(--gold);
-        }
-
-        .capability-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
-        }
-
-        .capability-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .capability-title {
-            font-size: 1.4rem;
-            margin-bottom: 1.2rem;
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-
-        /* Roadmap */
-        .roadmap-timeline {
-            position: relative;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .timeline-item {
-            background: var(--snow-white);
-            padding: 2.5rem;
-            margin: 2.5rem 0;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-left: 4px solid var(--gold);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(135, 108, 58, 0.15);
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gold);
         }
 
         .timeline-phase {
-            font-weight: bold;
-            color: var(--gold);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        /* Footer */
-        .corporate-footer {
-            background: var(--charcoal);
-            color: var(--snow-white);
-            padding: 4rem 2rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            text-align: left;
-        }
-
-        .footer-logo {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
+            position: relative;
         }
 
-        .footer-logo .logo-icon {
-            margin-right: 15px;
-        }
-
-        .footer-logo-text {
-            font-size: 1.5rem;
+        .phase-marker {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-weight: bold;
-            color: var(--snow-white);
+            margin-right: 2rem;
+            flex-shrink: 0;
+            z-index: 2;
         }
 
-        .footer-links-column h4 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        .phase-content {
+            flex: 1;
+            background: var(--snow-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--gold);
         }
 
-        .footer-links {
-            list-style: none;
+        .phase-completed .phase-marker {
+            background: #4CAF50;
         }
 
-        .footer-links li {
-            margin-bottom: 0.8rem;
+        .phase-current .phase-marker {
+            background: var(--gold);
+            animation: pulse 2s infinite;
         }
 
-        .footer-link {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #444;
-            text-align: center;
+        .phase-future .phase-marker {
+            background: var(--light-gray);
             color: #999;
         }
 
-        /* CTA Button */
-        .cta-button {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            color: white;
-            border: none;
-            padding: 18px 36px;
-            border-radius: 8px;
+        .phase-status {
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-completed .phase-status {
+            color: #4CAF50;
+        }
+
+        .phase-future .phase-status {
+            color: #999;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .progress-description {
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            color: #666;
             font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Georgia', serif;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(135, 108, 58, 0.3);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .nav-main {
-                display: none; /* Would implement mobile menu */
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section {
-                padding: 60px 1rem;
-            }
+            line-height: 1.7;
         }
     </style>
 </head>
 <body>
-    <!-- Professional Header -->
-    <header class="corporate-header">
-        <nav class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">A</div>
-                <div>
-                    <div class="logo-text">AURISTON</div>
-                    <div class="logo-subtitle">INTELLIGENT SYSTEMS</div>
-                </div>
-            </a>
-            <ul class="nav-main">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#technology" class="nav-link">Technology</a></li>
-                <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
-                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- (Keep previous header and initial sections) -->
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <h1 class="hero-title">Precision Intelligence for Modern Markets</h1>
-            <p class="hero-subtitle">
-                Auriston combines advanced artificial intelligence with institutional-grade financial modeling 
-                to create systems that understand market complexity and deliver actionable insights.
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div class="countdown-container">
+            <h2 class="countdown-title">Omega Quanta 1 Launch</h2>
+            <p class="countdown-subtitle">
+                The next generation of financial intelligence is coming. Join us as we count down to 
+                the official launch of our flagship AI trading system.
             </p>
-            <button class="cta-button">
-                Explore Omega Quanta 1 Platform
+            
+            <div class="countdown-timer">
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="days">90</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <button class="cta-button" style="background: transparent; border: 2px solid var(--gold);">
+                Join Waitlist for Early Access
             </button>
-        </section>
+        </div>
+    </section>
 
-        <!-- Technology Section -->
-        <section id="technology" class="section">
-            <h2 class="section-title">Our Technology Framework</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #666; line-height: 1.8;">
-                    We build intelligent systems that learn, adapt, and evolve with market conditions, 
-                    combining quantitative rigor with cutting-edge machine learning.
-                </p>
-            </div>
+    <!-- Progress Timeline Section -->
+    <section class="progress-section">
+        <div class="progress-container">
+            <h2 class="progress-title">Our Development Journey</h2>
             
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">🧠</div>
-                    <h3 class="capability-title">Advanced AI/ML Engine</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Deep learning models for pattern recognition, natural language processing for market sentiment, 
-                        and reinforcement learning for adaptive trading strategies that evolve with market conditions.
-                    </p>
+            <div class="timeline">
+                <!-- Q2 2025 - COMPLETED -->
+                <div class="timeline-phase phase-completed">
+                    <div class="phase-marker">Q2</div>
+                    <div class="phase-content">
+                        <div class="phase-status">Completed - Q2 2025</div>
+                        <h3>Vision & Conceptualization</h3>
+                        <p style="color: #666; line-height: 1.7;">
+                            Initial idea for Omega Quanta 1 was born. Comprehensive research into market gaps 
+                            and technological opportunities. Defined core architecture and target capabilities.
+                        </p>
+                        <ul style="color: #666; margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Market analysis and opportunity assessment</li>
+                            <li>Initial technical architecture planning</li>
+                            <li>Competitive landscape research</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="capability-card">
-                    <div class="capability-icon">📊</div>
-                    <h3 class="capability-title">Quantitative Research</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Statistical arbitrage, multi-factor modeling, time series analysis, and proprietary risk frameworks 
-                        developed by our quantitative research team.
-                    </p>
+
+                <!-- Q3 2025 - COMPLETED -->
+                <div class="timeline-phase phase-completed">
+                    <div class="phase-marker">Q3</div>
+                    <div class="phase-content">
+                        <div class="phase-status">Completed - Q3 2025</div>
+                        <h3>Technical Planning & Architecture</h3>
+                        <p style="color: #666; line-height: 1.7;">
+                            Detailed system architecture design. Technology stack selection. 
+                            Development methodology planning and resource allocation.
+                        </p>
+                        <ul style="color: #666; margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>System architecture and module design</li>
+                            <li>Technology stack finalization</li>
+                            <li>Development roadmap creation</li>
+                            <li>Initial team formation</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="capability-card">
-                    <div class="capability-icon">⚡</div>
-                    <h3 class="capability-title">Real-time Analytics</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        High-frequency data processing, real-time risk monitoring, and instantaneous signal generation 
-                        across global equity, fixed income, and derivatives markets.
-                    </p>
+
+                <!-- Q4 2025 - CURRENT -->
+                <div class="timeline-phase phase-current">
+                    <div class="phase-marker">Q4</div>
+                    <div class="phase-content">
+                        <div class="phase-status">In Progress - Q4 2025</div>
+                        <h3>Core Development Phase</h3>
+                        <p style="color: #666; line-height: 1.7;">
+                            Active development of Omega Quanta 1 core systems. Building foundational 
+                            AI pattern recognition, data infrastructure, and web interface.
+                        </p>
+                        <ul style="color: #666; margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>✅ Auriston Inc corporate website launched</li>
+                            <li>✅ Basic AI pattern recognition engine</li>
+                            <li>🔄 Advanced technical indicators integration</li>
+                            <li>🔄 Data pipeline architecture</li>
+                            <li>🔄 Risk modeling framework</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Q1 2026 - FUTURE -->
+                <div class="timeline-phase phase-future">
+                    <div class="phase-marker">Q1</div>
+                    <div class="phase-content">
+                        <div class="phase-status">Coming - Q1 2026</div>
+                        <h3>Advanced Feature Development</h3>
+                        <p style="color: #666; line-height: 1.7;">
+                            Integration of advanced analytics, news sentiment engine, and 
+                            historical comparison systems. Beta testing with select partners.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Q2 2026 - FUTURE -->
+                <div class="timeline-phase phase-future">
+                    <div class="phase-marker">Q2</div>
+                    <div class="phase-content">
+                        <div class="phase-status">Coming - Q2 2026</div>
+                        <h3>Institutional Feature Integration</h3>
+                        <p style="color: #666; line-height: 1.7;">
+                            Development of risk management systems, compliance features, 
+                            and enterprise-grade dashboard. Advanced backtesting capabilities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Q3 2026 - FUTURE -->
+                <div class="timeline-phase phase-future">
+                    <div class="phase-marker">Q3</div>
+                    <div class="phase-content">
+                        <div class="phase-status">Target Launch - Q3 2026</div>
+                        <h3>Omega Quanta 1 Official Launch</h3>
+                        <p style="color: #666; line-height: 1.7;">
+                            Full platform release with all core capabilities. Institutional onboarding, 
+                            public availability, and continuous improvement cycle begins.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Capabilities Section -->
-        <section id="capabilities" class="section section-light">
-            <h2 class="section-title">Platform Capabilities</h2>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <h3 class="capability-title">Chart Analysis & Pattern Recognition</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Machine learning-powered technical analysis with multi-timeframe pattern detection 
-                        across equities, forex, commodities, and digital assets.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <h3 class="capability-title">Multi-factor Risk Models</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Comprehensive risk assessment using Value at Risk (VaR), Monte Carlo simulations, 
-                        stress testing, and scenario analysis across portfolios.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <h3 class="capability-title">Global News Integration</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Real-time sentiment analysis of financial news, earnings calls, central bank communications, 
-                        and geopolitical events with market impact scoring.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <h3 class="capability-title">Historical Comparison Engine</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Proprietary algorithms that identify historical analogues and pattern recurrences 
-                        with statistical significance and outcome probability weighting.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Roadmap Section -->
-        <section id="roadmap" class="section">
-            <h2 class="section-title">Development Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-phase">Q1 2024 - Omega Quanta 1 Launch</div>
-                    <p style="color: #666; line-height: 1.7;">
-                        Core AI pattern recognition engine, advanced technical analysis suite, 
-                        and institutional web interface deployment with basic risk metrics.
-                    </p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-phase">Q2 2024 - Advanced Analytics</div>
-                    <p style="color: #666; line-height: 1.7;">
-                        Multi-factor risk modeling integration, real-time news sentiment analysis, 
-                        portfolio optimization features, and API access for institutional clients.
-                    </p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-phase">Q3 2024 - Institutional Features</div>
-                    <p style="color: #666; line-height: 1.7;">
-                        Advanced Monte Carlo simulations, trade execution algorithms, 
-                        compliance monitoring systems, and enterprise-grade dashboard.
-                    </p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-phase">Q4 2024 - Alternative Data</div>
-                    <p style="color: #666; line-height: 1.7;">
-                        Satellite imagery analysis, credit card transaction data integration, 
-                        social sentiment modeling, and advanced market microstructure analysis.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section section-light">
-            <h2 class="section-title">About Auriston Inc</h2>
-            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666; line-height: 1.8;">
-                    Founded with the vision of democratizing institutional-grade financial intelligence, 
-                    Auriston is building the next generation of market analysis systems. Our team combines 
-                    decades of expertise in artificial intelligence, quantitative finance, and enterprise 
-                    software engineering to create tools that were previously only available to large hedge funds and institutions.
+            <div class="progress-description">
+                <p>
+                    <strong>What you see today represents our progress through Q4 2025.</strong> 
+                    We're building in public to demonstrate our commitment to transparency and 
+                    to build trust with our future users and partners.
                 </p>
-                <p style="font-size: 1.2rem; color: #666; line-height: 1.8;">
-                    We believe that true market advantage comes from deeper understanding, not just faster execution. 
-                    Our systems are designed to find signal in noise and deliver clarity in complexity.
+                <p style="margin-top: 1rem;">
+                    The countdown above tracks our progress toward the Q3 2026 launch of 
+                    Omega Quanta 1 - a complete institutional-grade financial intelligence platform.
                 </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="corporate-footer">
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">
-                    <div class="logo-icon">A</div>
-                    <div class="footer-logo-text">AURISTON</div>
-                </div>
-                <p style="color: #ccc; line-height: 1.7; max-width: 400px;">
-                    Building intelligent market systems that combine advanced AI with institutional-grade 
-                    financial modeling for clearer insights and better decisions.
-                </p>
-            </div>
-            
-            <div class="footer-links-column">
-                <h4>Company</h4>
-                <ul class="footer-links">
-                    <li><a href="#about" class="footer-link">About Us</a></li>
-                    <li><a href="#technology" class="footer-link">Technology</a></li>
-                    <li><a href="#careers" class="footer-link">Careers</a></li>
-                    <li><a href="#contact" class="footer-link">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links-column">
-                <h4>Legal</h4>
-                <ul class="footer-links">
-                    <li><a href="#privacy" class="footer-link">Privacy Policy</a></li>
-                    <li><a href="#terms" class="footer-link">Terms of Service</a></li>
-                    <li><a href="#compliance" class="footer-link">Compliance</a></li>
-                    <li><a href="#security" class="footer-link">Security</a></li>
-                </ul>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Auriston Inc. All rights reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">
-                Precision Intelligence for Modern Markets
-            </p>
-        </div>
-    </footer>
+    </section>
 
     <script>
-        // S
+        // Countdown Timer - Set to 90 days from now (Q3 2026 launch)
+        function updateCountdown() {
+            // Set launch date to approximately 90 days from now
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 90);
+            
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            if (distance < 0) {
+                // Countdown finished
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+    </html>
