@@ -3,149 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omega Quanta 1 - Auriston Inc Prototype</title>
+<title>Auriston Omega Quanta 1 - Advanced Dashboard</title>
 <style>
 :root {
-    --gold: #876c3a;
-    --dark-gold: #756035;
-    --snow-white: #fefefe;
-    --off-white: #f8f9fa;
-    --charcoal: #2c2c2c;
-    --light-gray: #e9ecef;
+    --gold: #d4af37;
+    --dark-gold: #a5832f;
+    --charcoal: #1e1e1e;
+    --dark-gray: #121212;
+    --glass-bg: rgba(30,30,30,0.6);
+    --accent: #ff9500;
+    --white: #f5f5f5;
+    --success: #4CAF50;
+    --warning: #FFC107;
+    --danger: #f44336;
+    --transition: 0.3s ease-in-out;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Georgia', serif; background: var(--snow-white); color: var(--charcoal); line-height: 1.6; }
-.corporate-header { background: var(--snow-white); border-bottom: 2px solid var(--light-gray); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 80px; }
-.logo { display: flex; align-items: center; text-decoration: none; }
-.logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-weight: bold; color: white; font-size: 1.2rem; }
-.logo-text { font-size: 1.8rem; font-weight: bold; color: var(--charcoal); }
-.logo-subtitle { font-size: 0.7rem; color: var(--gold); letter-spacing: 2px; margin-top: -5px; }
-.nav-main { display: flex; list-style: none; gap: 2rem; }
-.nav-link { color: var(--charcoal); text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.5rem 0; transition: color 0.3s ease; position: relative; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background: var(--dark-gray);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--gold);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: var(--gold);
+}
+
+.nav-main {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
 .nav-link:hover { color: var(--gold); }
-.nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background: var(--gold); transition: width 0.3s ease; }
-.nav-link:hover::after { width: 100%; }
-.main-content { margin-top: 80px; }
-.interface-section { padding: 80px 2rem; max-width: 1200px; margin: 0 auto; }
-.interface-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--charcoal); }
-.analysis-section { background: var(--snow-white); padding: 3rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid var(--light-gray); margin-bottom: 3rem; }
-.analysis-section h3 { color: var(--charcoal); margin-bottom: 1.5rem; font-size: 1.5rem; }
-textarea { width: 100%; height: 120px; padding: 15px; border: 2px solid var(--light-gray); border-radius: 8px; font-family: inherit; font-size: 1rem; margin: 15px 0; resize: vertical; }
-.analyze-btn { background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 1.1rem; transition: all 0.3s ease; }
-.analyze-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(135, 108, 58, 0.3); }
-.result-container { margin-top: 30px; padding: 25px; border-radius: 8px; border-left: 5px solid var(--gold); display: none; background: var(--off-white); }
-.pattern-item { background: var(--off-white); padding: 15px; margin: 10px 0; border-radius: 6px; border-left: 3px solid var(--gold); }
-.confidence-high { background: #e8f5e8; border-left-color: #4CAF50; }
-.confidence-medium { background: #fff3cd; border-left-color: #FFC107; }
-.confidence-low { background: #ffe8e8; border-left-color: #f44336; }
-.visual-analysis-section { padding: 50px 2rem; background: var(--off-white); border-radius: 20px; margin: 40px auto; max-width: 1200px; }
-.upload-area { border: 3px dashed var(--gold); border-radius: 15px; padding: 3rem 2rem; text-align: center; background: rgba(135,108,58,0.05); cursor: pointer; transition: all 0.3s ease; }
-.upload-area.drag-over { background: rgba(135,108,58,0.15); border-color: var(--dark-gold); transform: scale(1.02); }
-.upload-btn { background: var(--gold); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; }
-.upload-btn:hover { background: var(--dark-gold); transform: translateY(-2px); }
-#previewImage { max-width: 100%; max-height: 400px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); margin-top: 1rem; }
-.analysis-controls { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }
-.clear-btn { background: #6c757d; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
-.clear-btn:hover { background: #5a6268; transform: translateY(-2px); }
-@media (max-width: 768px) { .analysis-controls { flex-direction: column; } }
+
+/* Dashboard Container */
+.dashboard {
+    padding-top: 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap: 1.5rem;
+}
+
+/* Glass Panel */
+.panel {
+    background: rgba(40,40,40,0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.panel:hover { transform: scale(1.02); }
+
+.panel h3 { color: var(--gold); font-size: 1.3rem; margin-bottom: 0.5rem; }
+.panel p { color: var(--white); font-size: 0.95rem; line-height: 1.4; }
+
+/* Panels Specific */
+.chart-panel, .ai-panel, .risk-panel, .news-panel {
+    min-height: 350px;
+}
+
+.ai-result { background: var(--glass-bg); padding: 1rem; border-radius: 10px; overflow-y: auto; max-height: 200px; }
+
+.pattern-item {
+    padding: 10px;
+    border-left: 4px solid var(--gold);
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: rgba(60,60,60,0.6);
+}
+
+.confidence-high { border-left-color: var(--success); }
+.confidence-medium { border-left-color: var(--warning); }
+.confidence-low { border-left-color: var(--danger); }
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
+    background: var(--charcoal);
+    border-top: 1px solid var(--gold);
+    color: #aaa;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .dashboard { grid-template-columns: 1fr; }
+    .nav-main { display: none; }
+}
 </style>
 </head>
 <body>
-<header class="corporate-header">
-<nav class="nav-container">
-<a href="#" class="logo"><div class="logo-icon">A</div><div><div class="logo-text">AURISTON</div><div class="logo-subtitle">OMEGA QUANTA 1</div></div></a>
-<ul class="nav-main">
-<li><a href="#interface" class="nav-link">Try OQ1</a></li>
-<li><a href="#progress" class="nav-link">Our Journey</a></li>
-</ul>
-</nav>
+
+<header>
+    <nav class="nav-container">
+        <div class="logo">Auriston <span style="font-size:0.9rem; color:var(--accent)">OQ1</span></div>
+        <ul class="nav-main">
+            <li><a href="#" class="nav-link">Dashboard</a></li>
+            <li><a href="#" class="nav-link">Charts</a></li>
+            <li><a href="#" class="nav-link">AI Insights</a></li>
+            <li><a href="#" class="nav-link">Risk</a></li>
+        </ul>
+    </nav>
 </header>
-<main class="main-content">
-<section id="interface" class="interface-section">
-<h2 class="interface-title">Omega Quanta 1 Prototype</h2>
-<div class="analysis-section">
-<h3>📈 Textual Chart Pattern Analysis</h3>
-<p><strong>Describe chart patterns or market insights:</strong></p>
-<textarea id="chartInput" placeholder="E.g., Higher highs and higher lows; Bounce off $150 support"></textarea>
-<button class="analyze-btn" onclick="analyzeWithAI()">🧠 Analyze Text</button>
-<div id="aiResult" class="result-container"></div>
-</div>
-<div class="analysis-section visual-analysis-section">
-<h3>🖼️ Visual Chart Pattern Recognition</h3>
-<div class="upload-area" id="uploadArea">
-<p>Drag & drop your chart image here or click to upload</p>
-<input type="file" id="chartImage" accept="image/*" style="display:none;" onchange="previewImage(event)">
-<button class="upload-btn" onclick="document.getElementById('chartImage').click()">Upload Chart</button>
-<img id="previewImage" src="" alt="" style="display:none;">
-</div>
-<div class="analysis-controls">
-<button class="analyze-btn" onclick="analyzeImage()">🧠 Analyze Image</button>
-<button class="clear-btn" onclick="clearImageAnalysis()">Clear</button>
-</div>
-<div id="imageAnalysisResult" class="result-container"></div>
-</div>
-<div class="analysis-section">
-<h3>📊 Risk Management & Predictive Analytics</h3>
-<p>Simulated outputs for multi-timeframe confirmation, volume validation, predictive moves, and basic VaR risk analytics.</p>
-<div id="riskAnalysis" class="result-container" style="display:block;">
-<div class="pattern-item confidence-high">Multi-Timeframe Confirmation: ✅ Strong alignment across 3 timeframes</div>
-<div class="pattern-item confidence-medium">Volume Validation: 🔹 Moderate volume supports pattern</div>
-<div class="pattern-item confidence-high">Predicted Move: 3-7% uptrend probability</div>
-<div class="pattern-item confidence-medium">VaR 1-day 95% confidence: 2.3%</div>
-<div class="pattern-item confidence-medium">Monte Carlo Simulation: Expected 5% max drawdown over 30 days</div>
-<div class="pattern-item confidence-low">News Sentiment: Slightly Positive (simulated)</div>
-<div class="pattern-item confidence-medium">Market Microstructure Analysis: Normal liquidity observed</div>
-</div>
-</div>
-</section>
+
+<main class="dashboard">
+
+    <!-- Multi-Asset Chart Panel -->
+    <div class="panel chart-panel">
+        <h3>📊 Multi-Timeframe Chart Comparison</h3>
+        <p>Visualize multiple assets and timeframes side by side. Supports candlestick patterns, trendlines, and support/resistance.</p>
+        <div style="background:#000; flex:1; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#aaa;">
+            [Chart Placeholder]
+        </div>
+    </div>
+
+    <!-- AI Pattern Analysis Panel -->
+    <div class="panel ai-panel">
+        <h3>🧠 AI-Powered Visual & Text Analysis</h3>
+        <textarea id="chartInput" placeholder="Describe chart pattern..."></textarea>
+        <button onclick="analyzeWithAI()" style="padding:10px 20px; border:none; border-radius:8px; background:var(--gold); color:#000; cursor:pointer;">Analyze</button>
+        <div id="aiResult" class="ai-result"></div>
+    </div>
+
+    <!-- Risk & Analytics Panel -->
+    <div class="panel risk-panel">
+        <h3>📈 Institutional Risk Dashboard</h3>
+        <p>VaR, Monte Carlo simulations, portfolio risk heatmaps, and scenario analysis.</p>
+        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
+            [Risk Analytics Placeholder]
+        </div>
+    </div>
+
+    <!-- News Sentiment Panel -->
+    <div class="panel news-panel">
+        <h3>📰 Real-Time News & Sentiment Fusion</h3>
+        <p>Integrates market news and social sentiment to enhance predictive AI recommendations.</p>
+        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
+            [News Sentiment Feed Placeholder]
+        </div>
+    </div>
+
+    <!-- Predictive Analytics Panel -->
+    <div class="panel">
+        <h3>🎯 Predictive Analytics Engine</h3>
+        <p>Probability-driven next move forecasts, multi-timeframe confirmation, and ensemble model predictions.</p>
+        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
+            [Predictive Analytics Placeholder]
+        </div>
+    </div>
+
+    <!-- Multi-Asset Scanner Panel -->
+    <div class="panel">
+        <h3>🔍 Advanced Multi-Asset Scanner</h3>
+        <p>Scan multiple assets simultaneously with filters for volume, trend, volatility, and pattern detection.</p>
+        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
+            [Scanner Placeholder]
+        </div>
+    </div>
+
 </main>
+
+<footer>
+    &copy; 2025 Auriston Inc • Omega Quanta 1 • Prototype Dashboard
+</footer>
+
 <script>
-function analyzeWithAI() {
+// AI Analysis
+function analyzeWithAI(){
     const input = document.getElementById('chartInput').value.trim();
     const resultDiv = document.getElementById('aiResult');
-    if(!input){ alert('Please enter chart pattern description'); return; }
+    if(!input){ alert('Describe chart pattern'); return; }
+
     const analysis = runAIAnalysis(input);
-    resultDiv.innerHTML = `<h3>🧠 Text AI Analysis:</h3><div class="pattern-item confidence-${analysis.confidenceLevel}"><p><strong>Pattern:</strong> ${analysis.pattern}</p><p><strong>Confidence:</strong> ${analysis.confidence}</p><p><strong>Recommendation:</strong> ${analysis.recommendation}</p><p><strong>Reasoning:</strong> ${analysis.reasoning}</p><p><strong>Expected Move:</strong> ${analysis.expectedMove}</p></div>`;
-    resultDiv.style.display = 'block';
+    resultDiv.innerHTML = `
+        <div class="pattern-item confidence-${analysis.confidenceLevel}">
+            <p><strong>Pattern:</strong> ${analysis.pattern}</p>
+            <p><strong>Confidence:</strong> ${analysis.confidence}</p>
+            <p><strong>Recommendation:</strong> ${analysis.recommendation}</p>
+            <p><strong>Reasoning:</strong> ${analysis.reasoning}</p>
+            <p><strong>Expected Move:</strong> ${analysis.expectedMove}</p>
+        </div>`;
+    resultDiv.scrollIntoView({behavior:"smooth"});
 }
-function runAIAnalysis(input) {
-    const lowerInput = input.toLowerCase();
-    if(lowerInput.includes('higher high') && lowerInput.includes('higher low')){
-        return {pattern:'UPTREND',confidence:'85% - High Confidence',confidenceLevel:'high',recommendation:'Buy on pullbacks',reasoning:'Higher highs and lows indicate bullish momentum',expectedMove:'2-5% likely'}
-    } else if(lowerInput.includes('lower high') && lowerInput.includes('lower low')){
-        return {pattern:'DOWNTREND',confidence:'80% - High Confidence',confidenceLevel:'high',recommendation:'Consider shorting rallies',reasoning:'Lower highs and lows indicate selling pressure',expectedMove:'3-7% down'}
-    } else if(lowerInput.includes('bounce') && lowerInput.includes('support')){
-        return {pattern:'SUPPORT BOUNCE',confidence:'75% - Medium Confidence',confidenceLevel:'medium',recommendation:'Long entries with stop below support',reasoning:'Price respecting support may reverse',expectedMove:'3-8% bounce'}
-    } else if(lowerInput.includes('sideways') || lowerInput.includes('range') || lowerInput.includes('consolidat')){
-        return {pattern:'CONSOLIDATION',confidence:'70% - Medium Confidence',confidenceLevel:'medium',recommendation:'Trade range or wait for breakout',reasoning:'Compression leads to expansion',expectedMove:'5-15% breakout move'}
-    } else { return {pattern:'UNCLEAR',confidence:'40% - Low',confidenceLevel:'low',recommendation:'Wait for clearer signals',reasoning:'Choppy market',expectedMove:'Uncertain'} }
-}
-function previewImage(event){
-    const reader = new FileReader();
-    reader.onload = function(){
-        const output = document.getElementById('previewImage');
-        output.src = reader.result; output.style.display='block';
-    };
-    reader.readAsDataURL(event.target.files[0]);
-}
-function analyzeImage(){
-    const imgResult = document.getElementById('imageAnalysisResult');
-    imgResult.innerHTML = `<h3>🖼️ Image AI Analysis (Simulated)</h3>
-    <div class="pattern-item confidence-high">Pattern: Cup and Handle</div>
-    <div class="pattern-item confidence-medium">Confidence: 78%</div>
-    <div class="pattern-item confidence-high">Recommendation: Consider breakout above handle</div>
-    <div class="pattern-item confidence-medium">Reasoning: Visual pattern shows bullish potential</div>
-    <div class="pattern-item confidence-medium">Expected Move: 4-8% possible</div>`;
-    imgResult.style.display='block';
-}
-function clearImageAnalysis(){
-    document.getElementById('previewImage').src='';
-    document.getElementById('previewImage').style.display='none';
-    document.getElementById('imageAnalysisResult').innerHTML='';
-    document.getElementById('chartImage').value='';
+
+function runAIAnalysis(input){
+    const l = input.toLowerCase();
+    if(l.includes('higher high') && l.includes('higher low')){
+        return {pattern:"UPTREND", confidence:"85%", confidenceLevel:"high",
+                recommendation:"Consider buying on pullbacks",
+                reasoning:"Higher highs and higher lows indicate bullish momentum",
+                expectedMove:"2-5% continuation"};
+    }
+    else if(l.includes('lower high') && l.includes('lower low')){
+        return {pattern:"DOWNTREND", confidence:"80%", confidenceLevel:"high",
+                recommendation:"Avoid longs; short rallies",
+                reasoning:"Lower highs/lows show selling pressure",
+                expectedMove:"3-7% decline"};
+    }
+    else { return {pattern:"UNCLEAR", confidence:"40%", confidenceLevel:"low",
+                    recommendation:"Wait for clearer signals",
+                    reasoning:"Market structure not clear",
+                    expectedMove:"Direction uncertain"};}
 }
 </script>
+
 </body>
 </html>
+
 
