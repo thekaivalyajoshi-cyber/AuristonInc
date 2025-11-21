@@ -3,253 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auriston Omega Quanta 1 - Advanced Dashboard</title>
+<title>Omega Quanta 1 - Auriston Inc</title>
 <style>
 :root {
-    --gold: #d4af37;
-    --dark-gold: #a5832f;
-    --charcoal: #1e1e1e;
-    --dark-gray: #121212;
-    --glass-bg: rgba(30,30,30,0.6);
-    --accent: #ff9500;
-    --white: #f5f5f5;
-    --success: #4CAF50;
-    --warning: #FFC107;
-    --danger: #f44336;
-    --transition: 0.3s ease-in-out;
+    --gold: #876c3a;
+    --dark-gold: #756035;
+    --charcoal: #2c2c2c;
+    --glass-white: rgba(255,255,255,0.1);
+    --glass-hover: rgba(255,255,255,0.15);
+    --text-light: #f8f8f8;
+    --off-white: #f8f9fa;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-
+* {margin:0; padding:0; box-sizing:border-box;}
 body {
-    background: var(--dark-gray);
-    color: var(--white);
-    overflow-x: hidden;
+    font-family: 'Georgia', serif;
+    background: var(--charcoal);
+    color: var(--text-light);
+    line-height:1.6;
 }
 
 /* Header */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(15px);
-    background: var(--glass-bg);
-    border-bottom: 1px solid var(--gold);
+.corporate-header {
+    background: var(--charcoal);
+    position: fixed; top:0; width:100%; z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.1);
 }
+.nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem; height:80px;}
+.logo {display:flex; align-items:center; text-decoration:none;}
+.logo-icon {width:40px; height:40px; background: linear-gradient(135deg, var(--gold), var(--dark-gold)); border-radius:8px; display:flex; align-items:center; justify-content:center; margin-right:12px; font-weight:bold; color:white; font-size:1.2rem;}
+.logo-text {font-size:1.8rem; font-weight:bold;}
+.logo-subtitle {font-size:0.7rem; color: var(--gold); letter-spacing:2px; margin-top:-5px;}
+.nav-main {display:flex; list-style:none; gap:2rem;}
+.nav-link {color: var(--text-light); text-decoration:none; font-size:0.95rem; font-weight:500; position:relative;}
+.nav-link::after {content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background: var(--gold); transition:0.3s;}
+.nav-link:hover::after {width:100%;}
+.nav-link:hover {color: var(--gold);}
 
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.main-content {margin-top:80px;}
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: var(--gold);
-}
+/* Countdown */
+.countdown-section {padding:80px 2rem; text-align:center;}
+.countdown-container h2{font-size:2.5rem; margin-bottom:1rem;}
+.countdown-timer{display:flex; justify-content:center; gap:2rem; margin-bottom:2rem;}
+.countdown-unit{background:var(--glass-white); padding:1.5rem; border-radius:12px; min-width:100px; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.2);}
+.countdown-number{font-size:3rem; font-weight:bold; color: var(--gold);}
+.countdown-label{font-size:0.9rem; opacity:0.8; margin-top:0.5rem;}
 
-.nav-main {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
+/* Timeline */
+.progress-section{padding:60px 2rem;}
+.timeline{position:relative; max-width:800px; margin:0 auto;}
+.timeline::before{content:''; position:absolute; left:30px; top:0; bottom:0; width:3px; background: var(--gold);}
+.timeline-phase{display:flex; margin-bottom:3rem; position:relative;}
+.phase-marker{width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:2rem; flex-shrink:0; z-index:2; background: var(--gold); color:#fff;}
+.phase-content{flex:1; background: var(--glass-white); padding:2rem; border-radius:12px; border-left:4px solid var(--gold);}
+.phase-status{font-weight:bold; color: var(--gold); margin-bottom:0.5rem; font-size:0.9rem;}
+.phase-completed .phase-marker{background:#4CAF50;}
+.phase-future .phase-marker{background:#444;color:#999;}
+.phase-current .phase-marker{animation:pulse 2s infinite;}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
 
-.nav-link {
-    color: var(--white);
-    text-decoration: none;
-    transition: var(--transition);
-}
+/* Interface Section */
+.interface-section{padding:80px 2rem; max-width:1200px;margin:0 auto;}
+.interface-title{text-align:center;font-size:2.5rem;margin-bottom:3rem;}
+.analysis-section{background: var(--glass-white); padding:3rem; border-radius:12px; margin-bottom:3rem; backdrop-filter:blur(10px);}
+.analysis-section h3{margin-bottom:1.5rem;}
+textarea{width:100%; height:120px; padding:15px; border-radius:8px; font-size:1rem; margin-bottom:1rem;}
+.analyze-btn{background: linear-gradient(135deg,var(--gold),var(--dark-gold)); color:white; border:none; padding:15px 30px; border-radius:8px; cursor:pointer; font-size:1.1rem;}
+.analyze-btn:hover{transform:translateY(-3px); box-shadow:0 10px 25px rgba(135,108,58,0.3);}
+.result-container{margin-top:30px;padding:25px;border-radius:8px;border-left:5px solid var(--gold); display:none;}
+.pattern-item{padding:15px; margin:10px 0; border-radius:6px; border-left:3px solid var(--gold); background: rgba(255,255,255,0.05);}
+.confidence-high{border-left-color:#4CAF50; background: rgba(76,175,80,0.1);}
+.confidence-medium{border-left-color:#FFC107; background: rgba(255,193,7,0.1);}
+.confidence-low{border-left-color:#f44336; background: rgba(244,67,54,0.1);}
 
-.nav-link:hover { color: var(--gold); }
+/* Multi-timeframe Chart Comparison */
+.multi-chart-container{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem;}
+.chart-frame{background:var(--glass-white); border-radius:12px; height:300px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:1.2rem; backdrop-filter:blur(10px);}
 
-/* Dashboard Container */
-.dashboard {
-    padding-top: 100px;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
-    gap: 1.5rem;
-}
+/* News & Sentiment */
+.news-sentiment{background:var(--glass-white); padding:2rem; border-radius:12px; margin-top:2rem; backdrop-filter:blur(10px);}
+.news-item{margin-bottom:1rem;}
 
-/* Glass Panel */
-.panel {
-    background: rgba(40,40,40,0.6);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(212,175,55,0.4);
-    border-radius: 15px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: transform 0.3s ease;
-}
-
-.panel:hover { transform: scale(1.02); }
-
-.panel h3 { color: var(--gold); font-size: 1.3rem; margin-bottom: 0.5rem; }
-.panel p { color: var(--white); font-size: 0.95rem; line-height: 1.4; }
-
-/* Panels Specific */
-.chart-panel, .ai-panel, .risk-panel, .news-panel {
-    min-height: 350px;
-}
-
-.ai-result { background: var(--glass-bg); padding: 1rem; border-radius: 10px; overflow-y: auto; max-height: 200px; }
-
-.pattern-item {
-    padding: 10px;
-    border-left: 4px solid var(--gold);
-    margin-bottom: 10px;
-    border-radius: 6px;
-    background: rgba(60,60,60,0.6);
-}
-
-.confidence-high { border-left-color: var(--success); }
-.confidence-medium { border-left-color: var(--warning); }
-.confidence-low { border-left-color: var(--danger); }
+/* Dashboard Widgets */
+.dashboard{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; margin-top:2rem;}
+.widget{background:var(--glass-white); padding:2rem; border-radius:12px; backdrop-filter:blur(10px);}
 
 /* Footer */
-footer {
-    margin-top: 3rem;
-    padding: 2rem;
-    text-align: center;
-    background: var(--charcoal);
-    border-top: 1px solid var(--gold);
-    color: #aaa;
-}
+.corporate-footer{background:#111; color:var(--text-light); padding:4rem 2rem;}
+.footer-content{max-width:1200px;margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem;}
+.footer-link{color:#ccc;text-decoration:none;}
+.footer-link:hover{color:var(--gold);}
+.footer-bottom{margin-top:3rem; text-align:center; color:#999;}
 
-/* Responsive */
-@media(max-width: 768px){
-    .dashboard { grid-template-columns: 1fr; }
-    .nav-main { display: none; }
-}
 </style>
 </head>
 <body>
-
-<header>
+<header class="corporate-header">
     <nav class="nav-container">
-        <div class="logo">Auriston <span style="font-size:0.9rem; color:var(--accent)">OQ1</span></div>
+        <a href="#" class="logo">
+            <div class="logo-icon">A</div>
+            <div>
+                <div class="logo-text">AURISTON</div>
+                <div class="logo-subtitle">OMEGA QUANTA 1</div>
+            </div>
+        </a>
         <ul class="nav-main">
-            <li><a href="#" class="nav-link">Dashboard</a></li>
-            <li><a href="#" class="nav-link">Charts</a></li>
-            <li><a href="#" class="nav-link">AI Insights</a></li>
-            <li><a href="#" class="nav-link">Risk</a></li>
+            <li><a href="#countdown" class="nav-link">Countdown</a></li>
+            <li><a href="#progress" class="nav-link">Our Journey</a></li>
+            <li><a href="#interface" class="nav-link">Try OQ1</a></li>
+            <li><a href="#multi" class="nav-link">Multi-Timeframe</a></li>
+            <li><a href="#news" class="nav-link">News Sentiment</a></li>
         </ul>
     </nav>
 </header>
 
-<main class="dashboard">
+<main class="main-content">
 
-    <!-- Multi-Asset Chart Panel -->
-    <div class="panel chart-panel">
-        <h3>📊 Multi-Timeframe Chart Comparison</h3>
-        <p>Visualize multiple assets and timeframes side by side. Supports candlestick patterns, trendlines, and support/resistance.</p>
-        <div style="background:#000; flex:1; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#aaa;">
-            [Chart Placeholder]
-        </div>
-    </div>
+<section id="countdown" class="countdown-section">
+<div class="countdown-container">
+<h2>Omega Quanta 1 Trail Model</h2>
+<p>Counting down to our first functional trail model.</p>
+<div class="countdown-timer">
+<div class="countdown-unit"><span class="countdown-number" id="days">90</span><span class="countdown-label">Days</span></div>
+<div class="countdown-unit"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hours</span></div>
+<div class="countdown-unit"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Minutes</span></div>
+<div class="countdown-unit"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Seconds</span></div>
+</div>
+</div>
+</section>
 
-    <!-- AI Pattern Analysis Panel -->
-    <div class="panel ai-panel">
-        <h3>🧠 AI-Powered Visual & Text Analysis</h3>
-        <textarea id="chartInput" placeholder="Describe chart pattern..."></textarea>
-        <button onclick="analyzeWithAI()" style="padding:10px 20px; border:none; border-radius:8px; background:var(--gold); color:#000; cursor:pointer;">Analyze</button>
-        <div id="aiResult" class="ai-result"></div>
-    </div>
+<section id="progress" class="progress-section">
+<div class="timeline">
+<div class="timeline-phase phase-current">
+<div class="phase-marker">Q4</div>
+<div class="phase-content">
+<div class="phase-status">In Progress - Q4 2025</div>
+<h3>Core Development Phase</h3>
+<p>Building foundational AI pattern recognition, data infrastructure, and web interface.</p>
+</div></div></div>
+</section>
 
-    <!-- Risk & Analytics Panel -->
-    <div class="panel risk-panel">
-        <h3>📈 Institutional Risk Dashboard</h3>
-        <p>VaR, Monte Carlo simulations, portfolio risk heatmaps, and scenario analysis.</p>
-        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
-            [Risk Analytics Placeholder]
-        </div>
-    </div>
+<section id="interface" class="interface-section">
+<h2 class="interface-title">Try Omega Quanta 1 Prototype</h2>
+<div class="analysis-section">
+<h3>📈 Chart Pattern Analysis</h3>
+<textarea id="chartInput" placeholder="Describe chart patterns..."></textarea>
+<button class="analyze-btn" onclick="analyzeWithAI()">🧠 Analyze</button>
+<div id="aiResult" class="result-container"></div>
+</div>
+</section>
 
-    <!-- News Sentiment Panel -->
-    <div class="panel news-panel">
-        <h3>📰 Real-Time News & Sentiment Fusion</h3>
-        <p>Integrates market news and social sentiment to enhance predictive AI recommendations.</p>
-        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
-            [News Sentiment Feed Placeholder]
-        </div>
-    </div>
+<section id="multi" class="interface-section">
+<h2 class="interface-title">Multi-Timeframe Chart Comparison</h2>
+<div class="multi-chart-container">
+<div class="chart-frame">1H Chart</div>
+<div class="chart-frame">4H Chart</div>
+<div class="chart-frame">1D Chart</div>
+<div class="chart-frame">1W Chart</div>
+</div>
+</section>
 
-    <!-- Predictive Analytics Panel -->
-    <div class="panel">
-        <h3>🎯 Predictive Analytics Engine</h3>
-        <p>Probability-driven next move forecasts, multi-timeframe confirmation, and ensemble model predictions.</p>
-        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
-            [Predictive Analytics Placeholder]
-        </div>
-    </div>
+<section id="news" class="interface-section">
+<h2 class="interface-title">Real-Time News & Sentiment</h2>
+<div class="news-sentiment">
+<div class="news-item">📈 Stock XYZ hits resistance level - Sentiment: Positive</div>
+<div class="news-item">📰 Central Bank announces rate decision - Sentiment: Neutral</div>
+<div class="news-item">⚠️ Market volatility increasing - Sentiment: Negative</div>
+</div>
+</section>
 
-    <!-- Multi-Asset Scanner Panel -->
-    <div class="panel">
-        <h3>🔍 Advanced Multi-Asset Scanner</h3>
-        <p>Scan multiple assets simultaneously with filters for volume, trend, volatility, and pattern detection.</p>
-        <div style="flex:1; background:#111; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
-            [Scanner Placeholder]
-        </div>
-    </div>
+<section class="interface-section">
+<h2 class="interface-title">Dashboard Widgets</h2>
+<div class="dashboard">
+<div class="widget">Price Ticker: AAPL $165.3</div>
+<div class="widget">VaR Risk: 2.3%</div>
+<div class="widget">Predictive Trend: Upward 75%</div>
+<div class="widget">Portfolio Exposure: Tech 45%</div>
+</div>
+</section>
 
 </main>
 
-<footer>
-    &copy; 2025 Auriston Inc • Omega Quanta 1 • Prototype Dashboard
+<footer class="corporate-footer">
+<div class="footer-content">
+<div>
+<div class="logo-icon">A</div>
+<div class="logo-text">Auriston</div>
+<p>Building financial intelligence with AI.</p>
+</div>
+<div>
+<ul><li><a href="#" class="footer-link">Home</a></li></ul>
+</div>
+<div>
+<ul><li><a href="#" class="footer-link">Contact</a></li></ul>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2025 Auriston Inc. Omega Quanta 1</div>
 </footer>
 
 <script>
-// AI Analysis
-function analyzeWithAI(){
-    const input = document.getElementById('chartInput').value.trim();
-    const resultDiv = document.getElementById('aiResult');
-    if(!input){ alert('Describe chart pattern'); return; }
+function updateCountdown(){
+let launchDate = new Date(); launchDate.setDate(launchDate.getDate()+90);
+let now=new Date().getTime(); let dist=launchDate-now;
+if(dist<0){['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='00'); return;}
+let d=Math.floor(dist/(1000*60*60*24)), h=Math.floor((dist%(1000*60*60*24))/(1000*60*60)), m=Math.floor((dist%(1000*60*60))/(1000*60)), s=Math.floor((dist%(1000*60))/1000);
+document.getElementById('days').textContent=d.toString().padStart(2,'0');
+document.getElementById('hours').textContent=h.toString().padStart(2,'0');
+document.getElementById('minutes').textContent=m.toString().padStart(2,'0');
+document.getElementById('seconds').textContent=s.toString().padStart(2,'0');}
+setInterval(updateCountdown,1000); updateCountdown();
 
-    const analysis = runAIAnalysis(input);
-    resultDiv.innerHTML = `
-        <div class="pattern-item confidence-${analysis.confidenceLevel}">
-            <p><strong>Pattern:</strong> ${analysis.pattern}</p>
-            <p><strong>Confidence:</strong> ${analysis.confidence}</p>
-            <p><strong>Recommendation:</strong> ${analysis.recommendation}</p>
-            <p><strong>Reasoning:</strong> ${analysis.reasoning}</p>
-            <p><strong>Expected Move:</strong> ${analysis.expectedMove}</p>
-        </div>`;
-    resultDiv.scrollIntoView({behavior:"smooth"});
-}
+function analyzeWithAI(){
+const input=document.getElementById('chartInput').value.trim(); const resultDiv=document.getElementById('aiResult');
+if(!input){alert('Please describe chart pattern'); return;}
+const analysis=runAIAnalysis(input);
+resultDiv.innerHTML=`<h3>🧠 OQ1 AI Analysis:</h3>
+<div class="pattern-item confidence-${analysis.confidenceLevel}">
+<p><strong>Pattern:</strong> ${analysis.pattern}</p>
+<p><strong>Confidence:</strong> ${analysis.confidence}</p>
+<p><strong>Recommendation:</strong> ${analysis.recommendation}</p>
+<p><strong>Reasoning:</strong> ${analysis.reasoning}</p>
+<p><strong>Expected Move:</strong> ${analysis.expectedMove}</p>
+</div>`;
+resultDiv.style.display='block';}
 
 function runAIAnalysis(input){
-    const l = input.toLowerCase();
-    if(l.includes('higher high') && l.includes('higher low')){
-        return {pattern:"UPTREND", confidence:"85%", confidenceLevel:"high",
-                recommendation:"Consider buying on pullbacks",
-                reasoning:"Higher highs and higher lows indicate bullish momentum",
-                expectedMove:"2-5% continuation"};
-    }
-    else if(l.includes('lower high') && l.includes('lower low')){
-        return {pattern:"DOWNTREND", confidence:"80%", confidenceLevel:"high",
-                recommendation:"Avoid longs; short rallies",
-                reasoning:"Lower highs/lows show selling pressure",
-                expectedMove:"3-7% decline"};
-    }
-    else { return {pattern:"UNCLEAR", confidence:"40%", confidenceLevel:"low",
-                    recommendation:"Wait for clearer signals",
-                    reasoning:"Market structure not clear",
-                    expectedMove:"Direction uncertain"};}
+const lower=input.toLowerCase();
+if(lower.includes('higher high')&&lower.includes('higher low')) return {pattern:'UPTREND',confidence:'85% - High',confidenceLevel:'high',recommendation:'Buy on pullbacks',reasoning:'Higher highs/lows indicate bullish trend',expectedMove:'2-5% in 1-2 weeks'};
+else if(lower.includes('lower high')&&lower.includes('lower low')) return {pattern:'DOWNTREND',confidence:'80% - High',confidenceLevel:'high',recommendation:'Avoid longs or short',reasoning:'Lower highs/lows indicate bearish trend',expectedMove:'3-7% decline'};
+else if(lower.includes('bounce')&&lower.includes('support')) return {pattern:'SUPPORT BOUNCE',confidence:'75% - Medium',confidenceLevel:'medium',recommendation:'Consider long with stop',reasoning:'Price respecting support',expectedMove:'3-8% bounce'};
+else if(lower.includes('sideways')||lower.includes('range')||lower.includes('consolidat')) return {pattern:'CONSOLIDATION',confidence:'70% - Medium',confidenceLevel:'medium',recommendation:'Trade range or wait breakout',reasoning:'Compression may expand',expectedMove:'5-15% breakout'};
+else return {pattern:'UNCLEAR',confidence:'40% - Low',confidenceLevel:'low',recommendation:'Wait for clear signal',reasoning:'Choppy or unclear structure',expectedMove:'Direction uncertain'};
 }
 </script>
-
 </body>
 </html>
-
-
