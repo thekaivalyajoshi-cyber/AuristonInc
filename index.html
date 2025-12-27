@@ -1,528 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auriston Inc - Advanced Financial Intelligence Systems</title>
-    <style>
-        :root {
-            --gold: #876c3a;
-            --dark-gold: #756035;
-            --snow-white: #fefefe;
-            --off-white: #f8f9fa;
-            --charcoal: #2c2c2c;
-            --light-gray: #e9ecef;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auriston Inc — Institutional Financial Intelligence</title>
 
-        body {
-            font-family: 'Georgia', serif;
-            background: var(--snow-white);
-            color: var(--charcoal);
-            line-height: 1.6;
-        }
+<!-- SEO -->
+<meta name="description" content="Auriston Inc builds institutional-grade AI-driven financial intelligence systems combining quantitative research, machine learning, and real-time analytics.">
+<meta name="author" content="Auriston Inc">
 
-        /* Professional Header */
-        .corporate-header {
-            background: var(--snow-white);
-            border-bottom: 2px solid var(--light-gray);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        }
+<style>
+:root {
+  --gold:#876c3a;
+  --dark-gold:#6f5b32;
+  --charcoal:#2c2c2c;
+  --off:#f8f9fa;
+  --muted:#666;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Georgia,serif;
+  background:#fff;
+  color:var(--charcoal);
+  line-height:1.65;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+section{padding:90px 2rem;max-width:1200px;margin:auto}
+h1,h2,h3{font-weight:300}
+h1{font-size:3.4rem}
+h2{font-size:2.6rem;text-align:center;margin-bottom:3rem}
+h3{font-size:1.4rem;margin-bottom:.8rem}
+p{color:var(--muted)}
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            font-weight: bold;
-            color: white;
-            font-size: 1.2rem;
-        }
+a{text-decoration:none;color:inherit}
 
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--charcoal);
-        }
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  z-index:1000;
+}
+nav{
+  max-width:1200px;
+  margin:auto;
+  height:80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 2rem;
+}
+.logo{
+  display:flex;
+  align-items:center;
+}
+.logo-icon{
+  width:40px;height:40px;
+  background:linear-gradient(135deg,var(--gold),var(--dark-gold));
+  border-radius:8px;
+  display:grid;place-items:center;
+  color:#fff;font-weight:bold;
+  margin-right:12px;
+}
+.nav-links{display:flex;gap:2rem;font-size:.95rem}
+.nav-links a:hover{color:var(--gold)}
 
-        .logo-subtitle {
-            font-size: 0.7rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            margin-top: -5px;
-        }
+main{margin-top:80px}
 
-        .nav-main {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#2c2c2c,#3b3b3b);
+  color:#fff;
+  padding:140px 2rem;
+  text-align:center;
+}
+.hero p{color:#ddd;font-size:1.3rem;max-width:720px;margin:2rem auto}
 
-        .nav-link {
-            color: var(--charcoal);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2.5rem;
+}
+.card{
+  background:#fff;
+  padding:2.4rem;
+  border-radius:12px;
+  border:1px solid #e5e5e5;
+  box-shadow:0 6px 25px rgba(0,0,0,.06);
+  position:relative;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--dark-gold));
+}
 
-        .nav-link:hover {
-            color: var(--gold);
-        }
+/* DASHBOARD */
+.dashboard{
+  background:#111;
+  color:#eee;
+  padding:3rem;
+  border-radius:14px;
+  font-family:monospace;
+}
+.metric{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #333;
+  padding:.8rem 0;
+}
+.metric span:last-child{color:var(--gold)}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
+/* CTA */
+.cta{
+  display:inline-block;
+  margin-top:2rem;
+  padding:16px 34px;
+  background:linear-gradient(135deg,var(--gold),var(--dark-gold));
+  color:#fff;
+  border-radius:8px;
+  font-weight:600;
+}
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+/* FOOTER */
+footer{
+  background:#1f1f1f;
+  color:#aaa;
+  padding:4rem 2rem 2rem;
+}
+footer p{color:#aaa;font-size:.9rem;text-align:center}
 
-        /* Main Content */
-        .main-content {
-            margin-top: 80px;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--charcoal) 0%, #3a3a3a 100%);
-            color: var(--snow-white);
-            padding: 120px 2rem;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--snow-white);
-            font-weight: 300;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        .section {
-            padding: 100px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-light {
-            background: var(--off-white);
-            border-radius: 12px;
-            margin: 40px auto;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--charcoal);
-            font-weight: 300;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .capability-card {
-            background: var(--snow-white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border: 1px solid var(--light-gray);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .capability-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(135, 108, 58, 0.15);
-            border-color: var(--gold);
-        }
-
-        .capability-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
-        }
-
-        .capability-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .capability-title {
-            font-size: 1.4rem;
-            margin-bottom: 1.2rem;
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            color: white;
-            border: none;
-            padding: 18px 36px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Georgia', serif;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(135, 108, 58, 0.3);
-        }
-
-        /* Footer */
-        .corporate-footer {
-            background: var(--charcoal);
-            color: var(--snow-white);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo .logo-icon {
-            margin-right: 15px;
-        }
-
-        .footer-logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--snow-white);
-        }
-
-        .footer-links-column h4 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-link {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #444;
-            text-align: center;
-            color: #999;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .nav-main {
-                display: none;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section {
-                padding: 60px 1rem;
-            }
-            
-            .capabilities-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+@media(max-width:768px){
+  .nav-links{display:none}
+  h1{font-size:2.4rem}
+}
+</style>
 </head>
+
 <body>
-    <!-- Professional Header -->
-    <header class="corporate-header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">A</div>
-                <div>
-                    <div class="logo-text">AURISTON</div>
-                    <div class="logo-subtitle">INTELLIGENT SYSTEMS</div>
-                </div>
-            </a>
-            <ul class="nav-main">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#technology" class="nav-link">Technology</a></li>
-                <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="oq1-platform.html" class="nav-link">Omega Quanta 1</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <h1 class="hero-title">Intelligent Market Systems</h1>
-            <p class="hero-subtitle">
-                Building the next generation of financial intelligence through advanced AI 
-                and institutional-grade quantitative research.
-            </p>
-            <a href="oq1-platform.html" class="cta-button">
-                Explore Omega Quanta 1 Platform
-            </a>
-        </section>
+<header>
+<nav>
+  <div class="logo">
+    <div class="logo-icon">A</div>
+    <strong>AURISTON</strong>
+  </div>
+  <div class="nav-links">
+    <a href="#technology">Technology</a>
+    <a href="#investors">Investors</a>
+    <a href="#dashboard">Platform</a>
+    <a href="#research">Research</a>
+    <a href="#governance">Governance</a>
+  </div>
+</nav>
+</header>
 
-        <!-- Technology Section -->
-        <section id="technology" class="section">
-            <h2 class="section-title">Our Technology Framework</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #666; line-height: 1.8;">
-                    We build systems that learn, adapt, and evolve with market conditions, 
-                    combining quantitative rigor with cutting-edge machine learning.
-                </p>
-            </div>
-            
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">🧠</div>
-                    <h3 class="capability-title">Advanced AI/ML Engine</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Deep learning models for pattern recognition, natural language processing for market sentiment, 
-                        and reinforcement learning for adaptive trading strategies.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <div class="capability-icon">📊</div>
-                    <h3 class="capability-title">Quantitative Research</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Statistical arbitrage, multi-factor modeling, time series analysis, and proprietary risk frameworks 
-                        developed by our quantitative research team.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <div class="capability-icon">⚡</div>
-                    <h3 class="capability-title">Real-time Analytics</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        High-frequency data processing, real-time risk monitoring, and instantaneous signal generation 
-                        across global equity, fixed income, and derivatives markets.
-                    </p>
-                </div>
-            </div>
-        </section>
+<main>
 
-        <!-- Capabilities Section -->
-        <section id="capabilities" class="section section-light">
-            <h2 class="section-title">Platform Capabilities</h2>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <h3 class="capability-title">Chart Analysis & Pattern Recognition</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Machine learning-powered technical analysis with multi-timeframe pattern detection 
-                        across equities, forex, commodities, and digital assets.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <h3 class="capability-title">Multi-factor Risk Models</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Comprehensive risk assessment using Value at Risk (VaR), Monte Carlo simulations, 
-                        stress testing, and scenario analysis across portfolios.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <h3 class="capability-title">Global News Integration</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Real-time sentiment analysis of financial news, earnings calls, central bank communications, 
-                        and geopolitical events with market impact scoring.
-                    </p>
-                </div>
-                
-                <div class="capability-card">
-                    <h3 class="capability-title">Historical Comparison Engine</h3>
-                    <p style="color: #666; line-height: 1.7;">
-                        Proprietary algorithms that identify historical analogues and pattern recurrences 
-                        with statistical significance and outcome probability weighting.
-                    </p>
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<section class="hero">
+  <h1>Institutional Financial Intelligence</h1>
+  <p>
+    Auriston builds AI-driven market intelligence systems designed for professional investors,
+    research teams, and institutions operating in complex financial environments.
+  </p>
+  <a class="cta" href="#investors">View Investor Overview</a>
+</section>
 
-        <!-- About Section -->
-        <section id="about" class="section">
-            <h2 class="section-title">About Auriston Inc</h2>
-            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666; line-height: 1.8;">
-                    Founded with the vision of democratizing institutional-grade financial intelligence, 
-                    Auriston is building the next generation of market analysis systems. Our team combines 
-                    expertise in artificial intelligence, quantitative finance, and enterprise software 
-                    engineering to create tools previously only available to large institutions.
-                </p>
-                <p style="font-size: 1.2rem; color: #666; line-height: 1.8;">
-                    We believe that true market advantage comes from deeper understanding, not just faster execution. 
-                    Our systems are designed to find signal in noise and deliver clarity in complexity.
-                </p>
-            </div>
-        </section>
-    </main>
+<!-- TECHNOLOGY -->
+<section id="technology">
+<h2>Technology Foundation</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Quantitative Research Core</h3>
+    <p>Statistical modeling, regime analysis, factor attribution, and historical analog discovery.</p>
+  </div>
+  <div class="card">
+    <h3>AI & Machine Learning</h3>
+    <p>Supervised, unsupervised, and reinforcement learning models with explainability layers.</p>
+  </div>
+  <div class="card">
+    <h3>Risk-First Architecture</h3>
+    <p>Risk assessment embedded at signal, portfolio, and system levels.</p>
+  </div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer class="corporate-footer">
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">
-                    <div class="logo-icon">A</div>
-                    <div class="footer-logo-text">AURISTON</div>
-                </div>
-                <p style="color: #ccc; line-height: 1.7; max-width: 400px;">
-                    Building intelligent market systems that combine advanced AI with institutional-grade 
-                    financial modeling for clearer insights and better decisions.
-                </p>
-            </div>
-            
-            <div class="footer-links-column">
-                <h4>Company</h4>
-                <ul class="footer-links">
-                    <li><a href="#about" class="footer-link">About Us</a></li>
-                    <li><a href="#technology" class="footer-link">Technology</a></li>
-                    <li><a href="#careers" class="footer-link">Careers</a></li>
-                    <li><a href="#contact" class="footer-link">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links-column">
-                <h4>Products</h4>
-                <ul class="footer-links">
-                    <li><a href="oq1-platform.html" class="footer-link">Omega Quanta 1</a></li>
-                    <li><a href="#research" class="footer-link">Market Research</a></li>
-                    <li><a href="#api" class="footer-link">Developer API</a></li>
-                    <li><a href="#enterprise" class="footer-link">Enterprise</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Auriston Inc. All rights reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">
-                Precision Intelligence for Modern Markets
-            </p>
-        </div>
-    </footer>
+<!-- INVESTOR / RESEARCH DECK -->
+<section id="investors" style="background:var(--off);border-radius:14px">
+<h2>Investor & Research Overview</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Problem</h3>
+    <p>Markets are noisy, regime-dependent, and increasingly driven by non-linear dynamics.</p>
+  </div>
+  <div class="card">
+    <h3>Solution</h3>
+    <p>A unified intelligence platform combining research, AI, and real-time analytics.</p>
+  </div>
+  <div class="card">
+    <h3>Defensibility</h3>
+    <p>Proprietary research workflows, validation pipelines, and model governance.</p>
+  </div>
+</div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+<!-- DASHBOARD -->
+<section id="dashboard">
+<h2>Omega Quanta — Intelligence Console</h2>
+<div class="dashboard">
+  <div class="metric"><span>Market Regime</span><span>Risk-On (0.73)</span></div>
+  <div class="metric"><span>Volatility State</span><span>Compressed</span></div>
+  <div class="metric"><span>Macro Signal Bias</span><span>Neutral → Bullish</span></div>
+  <div class="metric"><span>Historical Analog Match</span><span>2016 Q2 (82%)</span></div>
+  <div class="metric"><span>System Confidence</span><span>High</span></div>
+</div>
+</section>
+
+<!-- ENTERPRISE / API -->
+<section>
+<h2>Enterprise & API Access</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Institutional Access</h3>
+    <p>Dedicated deployments, SLA-backed infrastructure, and custom research pipelines.</p>
+  </div>
+  <div class="card">
+    <h3>Developer API</h3>
+    <p>Secure REST APIs delivering signals, analytics, and historical comparisons.</p>
+  </div>
+</div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="background:var(--off);border-radius:14px">
+<h2>Research Methodology</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Hypothesis-Driven Research</h3>
+    <p>All models originate from testable financial hypotheses.</p>
+  </div>
+  <div class="card">
+    <h3>Validation & Stress Testing</h3>
+    <p>Out-of-sample testing, Monte Carlo simulations, and regime stress.</p>
+  </div>
+  <div class="card">
+    <h3>Explainability</h3>
+    <p>Each signal includes confidence metrics and contributing factors.</p>
+  </div>
+</div>
+</section>
+
+<!-- GOVERNANCE -->
+<section id="governance">
+<h2>Regulatory & Risk Governance</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Risk Disclosure</h3>
+    <p>All outputs are analytical tools, not investment advice.</p>
+  </div>
+  <div class="card">
+    <h3>Model Governance</h3>
+    <p>Version control, audit logs, and controlled model updates.</p>
+  </div>
+  <div class="card">
+    <h3>Data Integrity</h3>
+    <p>Source validation, survivorship bias controls, and anomaly detection.</p>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2024 Auriston Inc. Designed for professional investors and institutions.</p>
+</footer>
+
 </body>
 </html>
