@@ -157,55 +157,86 @@ footer{background:#1f1f1f;color:#aaa;padding:3rem 2rem;text-align:center;font-si
 
 <script>
 /* ==========================
-   Optional Auth + RBAC
-   ========================== */
-const state = {
-  user: JSON.parse(localStorage.getItem("auristonUser")) || null
-};
+  JWT + Role-Based Frontend
+========================== */
 
-const roles = {
-  public: [],
-  investor: ["dashboard","investorDeck"],
-  research: ["dashboard","researchInternal"],
-  enterprise: ["dashboard","apiAccess"],
-  admin: ["dashboard","researchInternal","apiAccess","admin"]
-};
-
-function hasAccess(feature){
-  if(!state.user) return false;
-  return roles[state.user.role]?.includes(feature);
-}
-
-/* UI Elements */
 const dashboard = document.getElementById("dashboard");
 const loginBox = document.getElementById("login");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-/* Auth Flow */
+let token = localStorage.getItem("auristonJWT");
+let role = localStorage.getItem("auristonRole");
+
+function showDashboard(){
+  dashboard.classList.remove("hidden");
+  loginBtn.classList.add("hidden");
+  logoutBtn.classList.remove("hidden");
+}
+
+function hideDashboard(){
+  dashboard.classList.add("hidden");
+  loginBtn.classList.remove("hidden");
+  logoutBtn.classList.add("hidden");
+}
+
+// Initial check
+if(token && role){
+  showDashboard();
+}
+
+// Login Flow
 loginBtn.onclick = () => {
   loginBox.classList.remove("hidden");
   loginBox.scrollIntoView({behavior:"smooth"});
 };
 
-function login(){
-  const role = document.getElementById("role").value;
-  state.user = {role, issuedAt: Date.now()};
-  localStorage.setItem("auristonUser", JSON.stringify(state.user));
-  location.reload();
+async function login(){
+  const selectedRole = document.getElementById("role").value;
+
+  // For demo, map role to dummy user
+  const username = selectedRole;
+  const password = selectedRole + "123";
+
+  try {
+    const res = await fetch("http://localhost:4000/api/login", {
+      method: "POST",
+      headers: { "Content-Type":"application/json" },
+      body: JSON.stringify({ username, password })
+    });
+    if(!res.ok) throw new Error("Login failed");
+    const data = await res.json();
+    token = data.token;
+    role = data.role;
+    localStorage.setItem("auristonJWT", token);
+    localStorage.setItem("auristonRole", role);
+    showDashboard();
+  } catch(e) {
+    alert("Login failed: " + e.message);
+  }
 }
 
+// Logout
 logoutBtn.onclick = () => {
-  localStorage.removeItem("auristonUser");
-  location.reload();
-};
-
-/* Permission Gating */
-if(state.user){
-  logoutBtn.classList.remove("hidden");
-  loginBtn.classList.add("hidden");
-  if(hasAccess("dashboard")) dashboard.classList.remove("hidden");
+  localStorage.removeItem("auristonJWT");
+  localStorage.removeItem("auristonRole");
+  token = null;
+  role = null;
+  hideDashboard();
 }
+
+// Example: Fetch dashboard data
+async function fetchDashboard(){
+  if(!token) return;
+  const res = await fetch("http://localhost:4000/api/dashboard", {
+    headers: { "Authorization": "Bearer " + token }
+  });
+  const data = await res.json();
+  console.log(data);
+}
+
+// Call fetchDashboard if logged in
+if(token) fetchDashboard();
 </script>
 
 </body>
