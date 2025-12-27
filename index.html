@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auriston Inc — Secure Institutional Intelligence</title>
+<title>Auriston Inc — Institutional Financial Intelligence</title>
 
-<meta name="description" content="Auriston Inc builds institutional-grade AI-driven financial intelligence systems for professional investors, research teams, and enterprises.">
+<meta name="description" content="Auriston builds institutional-grade AI-driven financial intelligence systems for professional investors, research teams, and enterprises.">
 
 <style>
 :root{
@@ -20,16 +20,19 @@ body{
   font-family:Georgia,serif;
   background:#fff;
   color:var(--dark);
-  line-height:1.6;
+  line-height:1.65;
 }
 
 section{padding:90px 2rem;max-width:1200px;margin:auto}
 h1,h2,h3{font-weight:300}
-h1{font-size:3.2rem}
-h2{text-align:center;font-size:2.4rem;margin-bottom:3rem}
+h1{font-size:3.4rem}
+h2{text-align:center;font-size:2.6rem;margin-bottom:3rem}
 p{color:var(--muted)}
 a{text-decoration:none;color:inherit}
 
+.hidden{display:none}
+
+/* HEADER */
 header{
   position:fixed;top:0;width:100%;
   background:#fff;border-bottom:1px solid #ddd;
@@ -50,7 +53,6 @@ nav{
 }
 .nav-links{display:flex;gap:1.8rem;font-size:.95rem}
 .nav-links a:hover{color:var(--gold)}
-.hidden{display:none}
 
 main{margin-top:80px}
 
@@ -59,7 +61,7 @@ main{margin-top:80px}
   background:linear-gradient(135deg,#2c2c2c,#3a3a3a);
   color:#fff;padding:140px 2rem;text-align:center;
 }
-.hero p{color:#ddd;max-width:720px;margin:2rem auto;font-size:1.25rem}
+.hero p{color:#ddd;max-width:720px;margin:2rem auto;font-size:1.3rem}
 
 /* GRID */
 .grid{
@@ -94,9 +96,9 @@ main{margin-top:80px}
 }
 .metric span:last-child{color:var(--gold)}
 
-/* LOGIN */
+/* LOGIN MODAL */
 .auth-box{
-  max-width:420px;margin:140px auto;
+  max-width:420px;margin:4rem auto;
   background:#fff;padding:3rem;
   border-radius:14px;
   box-shadow:0 12px 40px rgba(0,0,0,.12);
@@ -104,7 +106,7 @@ main{margin-top:80px}
 .auth-box input,select{
   width:100%;padding:12px;
   margin-top:1rem;border-radius:6px;
-  border:1px solid #ccc;font-family:inherit;
+  border:1px solid #ccc;
 }
 .auth-box button{
   width:100%;margin-top:1.5rem;
@@ -115,14 +117,6 @@ main{margin-top:80px}
   cursor:pointer;
 }
 
-/* ACCESS DENIED */
-.denied{
-  background:var(--off);
-  border-radius:14px;
-  padding:4rem;text-align:center;
-}
-.denied h3{margin-bottom:1rem}
-
 footer{
   background:#1f1f1f;
   color:#aaa;padding:3rem 2rem;
@@ -131,7 +125,7 @@ footer{
 
 @media(max-width:768px){
   .nav-links{display:none}
-  h1{font-size:2.3rem}
+  h1{font-size:2.4rem}
 }
 </style>
 </head>
@@ -142,9 +136,12 @@ footer{
 <nav>
   <div class="logo"><span>A</span>AURISTON</div>
   <div class="nav-links">
-    <a href="#dashboard" class="auth-only">Platform</a>
-    <a href="#research" class="auth-only">Research</a>
-    <a href="#enterprise" class="auth-only">Enterprise</a>
+    <a href="#technology">Technology</a>
+    <a href="#investors">Investors</a>
+    <a href="#research">Research</a>
+    <a href="#governance">Governance</a>
+    <a href="#dashboard">Platform</a>
+    <a href="#" id="loginBtn">Login</a>
     <a href="#" id="logoutBtn" class="hidden">Logout</a>
   </div>
 </nav>
@@ -152,26 +149,56 @@ footer{
 
 <main>
 
-<!-- LOGIN -->
-<section id="login">
-  <div class="auth-box">
-    <h3 style="text-align:center">Secure Access</h3>
-    <p style="text-align:center;margin-top:.5rem">
-      Restricted to professional & institutional users
-    </p>
-
-    <input type="text" id="username" placeholder="Email or Username">
-    <select id="role">
-      <option value="investor">Investor</option>
-      <option value="research">Research</option>
-      <option value="enterprise">Enterprise</option>
-      <option value="admin">Administrator</option>
-    </select>
-    <button onclick="login()">Authenticate</button>
-  </div>
+<!-- HERO -->
+<section class="hero">
+  <h1>Institutional Financial Intelligence</h1>
+  <p>
+    Auriston builds AI-driven market intelligence systems designed for
+    professional investors, research teams, and enterprises.
+  </p>
 </section>
 
-<!-- DASHBOARD -->
+<!-- TECHNOLOGY -->
+<section id="technology">
+<h2>Technology Foundation</h2>
+<div class="grid">
+  <div class="card"><h3>Quantitative Research</h3><p>Statistical modeling, regime analysis, and factor attribution.</p></div>
+  <div class="card"><h3>AI & Machine Learning</h3><p>Explainable models designed for non-linear market dynamics.</p></div>
+  <div class="card"><h3>Risk-First Design</h3><p>Risk embedded at signal, portfolio, and system levels.</p></div>
+</div>
+</section>
+
+<!-- INVESTORS -->
+<section id="investors" style="background:var(--off);border-radius:14px">
+<h2>Investor Overview</h2>
+<div class="grid">
+  <div class="card"><h3>Problem</h3><p>Markets are noisy, regime-driven, and structurally complex.</p></div>
+  <div class="card"><h3>Solution</h3><p>Unified intelligence platform combining AI, research, and analytics.</p></div>
+  <div class="card"><h3>Defensibility</h3><p>Proprietary research workflows and governance frameworks.</p></div>
+</div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+<h2>Research Methodology</h2>
+<div class="grid">
+  <div class="card"><h3>Hypothesis Driven</h3><p>Every model starts with a testable financial hypothesis.</p></div>
+  <div class="card"><h3>Validation</h3><p>Out-of-sample testing and stress scenarios.</p></div>
+  <div class="card"><h3>Explainability</h3><p>Transparent confidence metrics and attribution.</p></div>
+</div>
+</section>
+
+<!-- GOVERNANCE -->
+<section id="governance" style="background:var(--off);border-radius:14px">
+<h2>Regulatory & Risk Governance</h2>
+<div class="grid">
+  <div class="card"><h3>Risk Disclosure</h3><p>Analytical tools only — not investment advice.</p></div>
+  <div class="card"><h3>Model Governance</h3><p>Audit trails, versioning, and controlled deployment.</p></div>
+  <div class="card"><h3>Data Integrity</h3><p>Bias controls, anomaly detection, and source validation.</p></div>
+</div>
+</section>
+
+<!-- DASHBOARD (LOCKED) -->
 <section id="dashboard" class="hidden">
 <h2>Omega Quanta — Intelligence Console</h2>
 <div class="dashboard">
@@ -182,31 +209,18 @@ footer{
 </div>
 </section>
 
-<!-- RESEARCH -->
-<section id="research" class="hidden">
-<h2>Research Methodology</h2>
-<div class="grid">
-  <div class="card"><h3>Hypothesis Driven</h3><p>Every model originates from a testable financial hypothesis.</p></div>
-  <div class="card"><h3>Validation</h3><p>Out-of-sample testing and regime stress analysis.</p></div>
-  <div class="card"><h3>Explainability</h3><p>Transparent confidence metrics and factor attribution.</p></div>
+<!-- LOGIN -->
+<section id="login" class="hidden">
+<div class="auth-box">
+  <h3 style="text-align:center">Secure Access</h3>
+  <select id="role">
+    <option value="investor">Investor</option>
+    <option value="research">Research</option>
+    <option value="enterprise">Enterprise</option>
+    <option value="admin">Administrator</option>
+  </select>
+  <button onclick="login()">Authenticate</button>
 </div>
-</section>
-
-<!-- ENTERPRISE -->
-<section id="enterprise" class="hidden">
-<h2>Enterprise & API Access</h2>
-<div class="grid">
-  <div class="card"><h3>Institutional Deployment</h3><p>Dedicated infrastructure and SLA-backed systems.</p></div>
-  <div class="card"><h3>Secure APIs</h3><p>REST endpoints delivering analytics and signals.</p></div>
-</div>
-</section>
-
-<!-- ACCESS DENIED -->
-<section id="denied" class="hidden">
-  <div class="denied">
-    <h3>Access Restricted</h3>
-    <p>This section is available only to authorized institutional users.</p>
-  </div>
 </section>
 
 </main>
@@ -216,7 +230,17 @@ footer{
 </footer>
 
 <script>
-const state = JSON.parse(localStorage.getItem("auristonUser"));
+const user = JSON.parse(localStorage.getItem("auristonUser"));
+
+const dashboard = document.getElementById("dashboard");
+const loginBox = document.getElementById("login");
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+loginBtn.onclick = () => {
+  loginBox.classList.remove("hidden");
+  loginBox.scrollIntoView({behavior:"smooth"});
+};
 
 function login(){
   const role = document.getElementById("role").value;
@@ -224,32 +248,17 @@ function login(){
   location.reload();
 }
 
-function logout(){
+logoutBtn.onclick = () => {
   localStorage.removeItem("auristonUser");
   location.reload();
-}
+};
 
-function show(id){document.getElementById(id)?.classList.remove("hidden")}
-function hide(id){document.getElementById(id)?.classList.add("hidden")}
-
-if(state){
-  hide("login");
-  document.getElementById("logoutBtn").classList.remove("hidden");
-  document.getElementById("logoutBtn").onclick = logout;
-
-  show("dashboard");
-
-  if(["research","enterprise","admin"].includes(state.role)){
-    show("research");
-  }
-  if(["enterprise","admin"].includes(state.role)){
-    show("enterprise");
-  }
-}else{
-  show("login");
+if(user){
+  dashboard.classList.remove("hidden");
+  logoutBtn.classList.remove("hidden");
+  loginBtn.classList.add("hidden");
 }
 </script>
 
 </body>
 </html>
-
