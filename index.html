@@ -3,86 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auriston Inc — Institutional Financial Intelligence</title>
+<title>Auriston Inc — Secure Institutional Intelligence</title>
 
-<!-- SEO -->
-<meta name="description" content="Auriston Inc builds institutional-grade AI-driven financial intelligence systems combining quantitative research, machine learning, and real-time analytics.">
-<meta name="author" content="Auriston Inc">
+<meta name="description" content="Auriston Inc builds institutional-grade AI-driven financial intelligence systems for professional investors, research teams, and enterprises.">
 
 <style>
-:root {
+:root{
   --gold:#876c3a;
-  --dark-gold:#6f5b32;
-  --charcoal:#2c2c2c;
-  --off:#f8f9fa;
+  --dark:#2c2c2c;
   --muted:#666;
+  --off:#f8f9fa;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:Georgia,serif;
   background:#fff;
-  color:var(--charcoal);
-  line-height:1.65;
+  color:var(--dark);
+  line-height:1.6;
 }
 
 section{padding:90px 2rem;max-width:1200px;margin:auto}
 h1,h2,h3{font-weight:300}
-h1{font-size:3.4rem}
-h2{font-size:2.6rem;text-align:center;margin-bottom:3rem}
-h3{font-size:1.4rem;margin-bottom:.8rem}
+h1{font-size:3.2rem}
+h2{text-align:center;font-size:2.4rem;margin-bottom:3rem}
 p{color:var(--muted)}
-
 a{text-decoration:none;color:inherit}
 
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#fff;
-  border-bottom:1px solid #ddd;
+  position:fixed;top:0;width:100%;
+  background:#fff;border-bottom:1px solid #ddd;
   z-index:1000;
 }
 nav{
-  max-width:1200px;
-  margin:auto;
-  height:80px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  max-width:1200px;margin:auto;
+  height:80px;display:flex;
+  justify-content:space-between;align-items:center;
   padding:0 2rem;
 }
-.logo{
-  display:flex;
-  align-items:center;
-}
-.logo-icon{
-  width:40px;height:40px;
-  background:linear-gradient(135deg,var(--gold),var(--dark-gold));
-  border-radius:8px;
+.logo{display:flex;align-items:center;font-weight:bold}
+.logo span{
+  width:38px;height:38px;
+  background:linear-gradient(135deg,var(--gold),#6f5b32);
   display:grid;place-items:center;
-  color:#fff;font-weight:bold;
-  margin-right:12px;
+  color:#fff;border-radius:8px;margin-right:10px;
 }
-.nav-links{display:flex;gap:2rem;font-size:.95rem}
+.nav-links{display:flex;gap:1.8rem;font-size:.95rem}
 .nav-links a:hover{color:var(--gold)}
+.hidden{display:none}
 
 main{margin-top:80px}
 
 /* HERO */
 .hero{
-  background:linear-gradient(135deg,#2c2c2c,#3b3b3b);
-  color:#fff;
-  padding:140px 2rem;
-  text-align:center;
+  background:linear-gradient(135deg,#2c2c2c,#3a3a3a);
+  color:#fff;padding:140px 2rem;text-align:center;
 }
-.hero p{color:#ddd;font-size:1.3rem;max-width:720px;margin:2rem auto}
+.hero p{color:#ddd;max-width:720px;margin:2rem auto;font-size:1.25rem}
 
 /* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:2.5rem;
+  gap:2.4rem;
 }
 .card{
   background:#fff;
@@ -94,50 +77,61 @@ main{margin-top:80px}
 }
 .card::before{
   content:"";
-  position:absolute;
-  top:0;left:0;
+  position:absolute;top:0;left:0;
   width:100%;height:4px;
-  background:linear-gradient(90deg,var(--gold),var(--dark-gold));
+  background:linear-gradient(90deg,var(--gold),#6f5b32);
 }
 
 /* DASHBOARD */
 .dashboard{
-  background:#111;
-  color:#eee;
-  padding:3rem;
-  border-radius:14px;
+  background:#111;color:#eee;
+  padding:3rem;border-radius:14px;
   font-family:monospace;
 }
 .metric{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #333;
-  padding:.8rem 0;
+  display:flex;justify-content:space-between;
+  border-bottom:1px solid #333;padding:.8rem 0;
 }
 .metric span:last-child{color:var(--gold)}
 
-/* CTA */
-.cta{
-  display:inline-block;
-  margin-top:2rem;
-  padding:16px 34px;
-  background:linear-gradient(135deg,var(--gold),var(--dark-gold));
-  color:#fff;
-  border-radius:8px;
+/* LOGIN */
+.auth-box{
+  max-width:420px;margin:140px auto;
+  background:#fff;padding:3rem;
+  border-radius:14px;
+  box-shadow:0 12px 40px rgba(0,0,0,.12);
+}
+.auth-box input,select{
+  width:100%;padding:12px;
+  margin-top:1rem;border-radius:6px;
+  border:1px solid #ccc;font-family:inherit;
+}
+.auth-box button{
+  width:100%;margin-top:1.5rem;
+  padding:14px;border:none;
+  background:linear-gradient(135deg,var(--gold),#6f5b32);
+  color:#fff;border-radius:8px;
   font-weight:600;
+  cursor:pointer;
 }
 
-/* FOOTER */
+/* ACCESS DENIED */
+.denied{
+  background:var(--off);
+  border-radius:14px;
+  padding:4rem;text-align:center;
+}
+.denied h3{margin-bottom:1rem}
+
 footer{
   background:#1f1f1f;
-  color:#aaa;
-  padding:4rem 2rem 2rem;
+  color:#aaa;padding:3rem 2rem;
+  text-align:center;font-size:.9rem;
 }
-footer p{color:#aaa;font-size:.9rem;text-align:center}
 
 @media(max-width:768px){
   .nav-links{display:none}
-  h1{font-size:2.4rem}
+  h1{font-size:2.3rem}
 }
 </style>
 </head>
@@ -146,140 +140,116 @@ footer p{color:#aaa;font-size:.9rem;text-align:center}
 
 <header>
 <nav>
-  <div class="logo">
-    <div class="logo-icon">A</div>
-    <strong>AURISTON</strong>
-  </div>
+  <div class="logo"><span>A</span>AURISTON</div>
   <div class="nav-links">
-    <a href="#technology">Technology</a>
-    <a href="#investors">Investors</a>
-    <a href="#dashboard">Platform</a>
-    <a href="#research">Research</a>
-    <a href="#governance">Governance</a>
+    <a href="#dashboard" class="auth-only">Platform</a>
+    <a href="#research" class="auth-only">Research</a>
+    <a href="#enterprise" class="auth-only">Enterprise</a>
+    <a href="#" id="logoutBtn" class="hidden">Logout</a>
   </div>
 </nav>
 </header>
 
 <main>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Institutional Financial Intelligence</h1>
-  <p>
-    Auriston builds AI-driven market intelligence systems designed for professional investors,
-    research teams, and institutions operating in complex financial environments.
-  </p>
-  <a class="cta" href="#investors">View Investor Overview</a>
-</section>
+<!-- LOGIN -->
+<section id="login">
+  <div class="auth-box">
+    <h3 style="text-align:center">Secure Access</h3>
+    <p style="text-align:center;margin-top:.5rem">
+      Restricted to professional & institutional users
+    </p>
 
-<!-- TECHNOLOGY -->
-<section id="technology">
-<h2>Technology Foundation</h2>
-<div class="grid">
-  <div class="card">
-    <h3>Quantitative Research Core</h3>
-    <p>Statistical modeling, regime analysis, factor attribution, and historical analog discovery.</p>
+    <input type="text" id="username" placeholder="Email or Username">
+    <select id="role">
+      <option value="investor">Investor</option>
+      <option value="research">Research</option>
+      <option value="enterprise">Enterprise</option>
+      <option value="admin">Administrator</option>
+    </select>
+    <button onclick="login()">Authenticate</button>
   </div>
-  <div class="card">
-    <h3>AI & Machine Learning</h3>
-    <p>Supervised, unsupervised, and reinforcement learning models with explainability layers.</p>
-  </div>
-  <div class="card">
-    <h3>Risk-First Architecture</h3>
-    <p>Risk assessment embedded at signal, portfolio, and system levels.</p>
-  </div>
-</div>
-</section>
-
-<!-- INVESTOR / RESEARCH DECK -->
-<section id="investors" style="background:var(--off);border-radius:14px">
-<h2>Investor & Research Overview</h2>
-<div class="grid">
-  <div class="card">
-    <h3>Problem</h3>
-    <p>Markets are noisy, regime-dependent, and increasingly driven by non-linear dynamics.</p>
-  </div>
-  <div class="card">
-    <h3>Solution</h3>
-    <p>A unified intelligence platform combining research, AI, and real-time analytics.</p>
-  </div>
-  <div class="card">
-    <h3>Defensibility</h3>
-    <p>Proprietary research workflows, validation pipelines, and model governance.</p>
-  </div>
-</div>
 </section>
 
 <!-- DASHBOARD -->
-<section id="dashboard">
+<section id="dashboard" class="hidden">
 <h2>Omega Quanta — Intelligence Console</h2>
 <div class="dashboard">
   <div class="metric"><span>Market Regime</span><span>Risk-On (0.73)</span></div>
-  <div class="metric"><span>Volatility State</span><span>Compressed</span></div>
-  <div class="metric"><span>Macro Signal Bias</span><span>Neutral → Bullish</span></div>
-  <div class="metric"><span>Historical Analog Match</span><span>2016 Q2 (82%)</span></div>
+  <div class="metric"><span>Macro Bias</span><span>Neutral → Bullish</span></div>
+  <div class="metric"><span>Historical Analog</span><span>2016 Q2 (82%)</span></div>
   <div class="metric"><span>System Confidence</span><span>High</span></div>
 </div>
 </section>
 
-<!-- ENTERPRISE / API -->
-<section>
-<h2>Enterprise & API Access</h2>
-<div class="grid">
-  <div class="card">
-    <h3>Institutional Access</h3>
-    <p>Dedicated deployments, SLA-backed infrastructure, and custom research pipelines.</p>
-  </div>
-  <div class="card">
-    <h3>Developer API</h3>
-    <p>Secure REST APIs delivering signals, analytics, and historical comparisons.</p>
-  </div>
-</div>
-</section>
-
 <!-- RESEARCH -->
-<section id="research" style="background:var(--off);border-radius:14px">
+<section id="research" class="hidden">
 <h2>Research Methodology</h2>
 <div class="grid">
-  <div class="card">
-    <h3>Hypothesis-Driven Research</h3>
-    <p>All models originate from testable financial hypotheses.</p>
-  </div>
-  <div class="card">
-    <h3>Validation & Stress Testing</h3>
-    <p>Out-of-sample testing, Monte Carlo simulations, and regime stress.</p>
-  </div>
-  <div class="card">
-    <h3>Explainability</h3>
-    <p>Each signal includes confidence metrics and contributing factors.</p>
-  </div>
+  <div class="card"><h3>Hypothesis Driven</h3><p>Every model originates from a testable financial hypothesis.</p></div>
+  <div class="card"><h3>Validation</h3><p>Out-of-sample testing and regime stress analysis.</p></div>
+  <div class="card"><h3>Explainability</h3><p>Transparent confidence metrics and factor attribution.</p></div>
 </div>
 </section>
 
-<!-- GOVERNANCE -->
-<section id="governance">
-<h2>Regulatory & Risk Governance</h2>
+<!-- ENTERPRISE -->
+<section id="enterprise" class="hidden">
+<h2>Enterprise & API Access</h2>
 <div class="grid">
-  <div class="card">
-    <h3>Risk Disclosure</h3>
-    <p>All outputs are analytical tools, not investment advice.</p>
-  </div>
-  <div class="card">
-    <h3>Model Governance</h3>
-    <p>Version control, audit logs, and controlled model updates.</p>
-  </div>
-  <div class="card">
-    <h3>Data Integrity</h3>
-    <p>Source validation, survivorship bias controls, and anomaly detection.</p>
-  </div>
+  <div class="card"><h3>Institutional Deployment</h3><p>Dedicated infrastructure and SLA-backed systems.</p></div>
+  <div class="card"><h3>Secure APIs</h3><p>REST endpoints delivering analytics and signals.</p></div>
 </div>
+</section>
+
+<!-- ACCESS DENIED -->
+<section id="denied" class="hidden">
+  <div class="denied">
+    <h3>Access Restricted</h3>
+    <p>This section is available only to authorized institutional users.</p>
+  </div>
 </section>
 
 </main>
 
 <footer>
-<p>© 2024 Auriston Inc. Designed for professional investors and institutions.</p>
+© 2024 Auriston Inc — Designed for professional investors and institutions.
 </footer>
+
+<script>
+const state = JSON.parse(localStorage.getItem("auristonUser"));
+
+function login(){
+  const role = document.getElementById("role").value;
+  localStorage.setItem("auristonUser",JSON.stringify({role}));
+  location.reload();
+}
+
+function logout(){
+  localStorage.removeItem("auristonUser");
+  location.reload();
+}
+
+function show(id){document.getElementById(id)?.classList.remove("hidden")}
+function hide(id){document.getElementById(id)?.classList.add("hidden")}
+
+if(state){
+  hide("login");
+  document.getElementById("logoutBtn").classList.remove("hidden");
+  document.getElementById("logoutBtn").onclick = logout;
+
+  show("dashboard");
+
+  if(["research","enterprise","admin"].includes(state.role)){
+    show("research");
+  }
+  if(["enterprise","admin"].includes(state.role)){
+    show("enterprise");
+  }
+}else{
+  show("login");
+}
+</script>
 
 </body>
 </html>
+
